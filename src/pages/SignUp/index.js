@@ -21,7 +21,7 @@ class SignUp extends Component {
       });
     } else {
       try {
-        await api.post("/api/user/register", {
+        await api.post("/api/users/signup", {
           username,
           email,
           password,
