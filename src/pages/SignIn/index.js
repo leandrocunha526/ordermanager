@@ -21,7 +21,7 @@ class SignIn extends Component {
       });
     } else {
       try {
-        const response = await api.post("/api/auth/signin", {
+        const response = await api.post("login", {
           username: username,
           password: password,
           withCredentials: true,
