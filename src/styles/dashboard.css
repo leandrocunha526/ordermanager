@@ -1,7 +1,6 @@
-@import url("https://font.googleapis.com/css2?family=Lato:wgh@300;400;700&display=swap");
-
+/* styling scrollbars */
 ::-webkit-scrollbar {
-    width: 5px;
+    height: 5px;
     height: 6px;
 }
 
@@ -11,12 +10,24 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3ea185;
+    background: #3ea175;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #a5aaad;
+}
+
+/* general styles */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
 }
 
 .text-primary-p {
@@ -25,12 +36,16 @@
     font-weight: 700;
 }
 
+.font-bold {
+    font-weight: 700;
+}
+
 .text-title {
-    color: #2e4a86;
+    color: #2e4a66;
 }
 
 .text-lightblue {
-    color: #467cac;
+    color: #469cac;
 }
 
 .text-red {
@@ -46,8 +61,9 @@
 }
 
 .container {
+    display: grid;
     height: 100vh;
-    grid-template-columns: 0.8fr repeat(3, 1fr);
+    grid-template-columns: 0.8fr 1fr 1fr 1fr;
     grid-template-rows: 0.2fr 3fr;
     grid-template-areas:
         "sidebar nav nav nav"
@@ -58,7 +74,9 @@
     .container {
         grid-template-columns: 1fr;
         grid-template-rows: 0.2fr 3fr;
-        grid-template-areas: "nav""main";
+        grid-template-areas:
+            "nav"
+            "main";
     }
 }
 
