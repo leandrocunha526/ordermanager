@@ -1,19 +1,16 @@
 import React from "react";
 import "./Sidebar.css";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
 
 const Sidebar = () => {
   return (
-    <div className={"sidebar-responsive"} id="sidebar">
+    <div className="sidebar-responsive" id="sidebar">
       <div className="sidebar__tutle">
         <div className="sidebar__img">
-          <img src={logo} alt="logo"/>
+          <img src={logo} alt="logo" />
           <h1>Order manager</h1>
         </div>
-        <i
-          className="fa fa-times"
-          id="sidebarIcon"
-        ></i>
+        <i className="fa fa-times" id="sidebarIcon"></i>
       </div>
       <div className="sidebar__menu">
         <div className="sidebar__link active_menu_link">
