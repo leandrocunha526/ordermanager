@@ -36,7 +36,7 @@ const Sidebar = () => {
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <a href="/manufacturer">Mquinas</a>
+          <a href="/manufacturer">Máquinas</a>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-user"></i>
