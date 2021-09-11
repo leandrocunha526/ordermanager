@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     background: #ffffff;
     grid-area: nav;
     height: 60px;
@@ -9,31 +9,56 @@
     border-bottom: 1px solid lightgray;
 }
 
-.nav_icon{
+.nav_icon {
     display: none;
 }
 
-.navbar__right{
+.nav_icon>i {
+    font-size: 26px;
+    color: #a5aaad;
+}
+
+.navbar__left>a {
+    margin-right: 30px;
+    text-decoration: none;
+    color: #a5aaad;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.navbar__left .active_link {
+    color: #265acc;
+    border-bottom: 3px solid #265acc;
+    padding-bottom: 12px;
+}
+
+.navbar__right {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.navbar__right > a {
+.navbar__right>a {
     margin-left: 20px;
     text-decoration: none;
 }
 
-.navbar__right > a > i {
-    color: #a5a5a5;
+.navbar__right>a>i {
+    color: #a5aaad;
     font-size: 16px;
     border-radius: 50px;
     background: #ffffff;
     box-shadow: 2px 2px 5px #d9d9d9, -2px -2px 5px #ffffff;
 }
 
-@media only screen and (max-width: 978 px){
-    .nav_icon{
+@media only screen and (max-width: 978px) {
+    .nav_icon {
         display: inline;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .navbar__left {
+        display: none;
     }
 }
