@@ -15,24 +15,28 @@ const Sidebar = () => {
           <a href="/dashboard">Home</a>
         </div>
         <div className="sidebar__link">
-          <i className="fa fa-tachometer"></i>
-          <a href="/">Área administrativa</a>
+          <i className="fa fa-industry"></i>
+          <a href="/manufacturer">Cadastro de marca</a>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <a href="/manufacturer">Marca</a>
+          <a href="/manufacturer">Marcas</a>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <a href="/model">Modelo</a>
+          <a href="/model">Cadastro de modelo</a>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <a href="/manufacturer">Máquina</a>
+          <a href="/model">Modelos</a>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <a href="/machine">Máquina</a>
+          <a href="/manufacturer">Cadastro de máquina</a>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-tractor"></i>
+          <a href="/manufacturer">Mquinas</a>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-user"></i>
@@ -40,15 +44,31 @@ const Sidebar = () => {
         </div>
         <div className="sidebar__link">
           <i className="fas fa-wrench"></i>
-          <a href="/order">Order de serviço</a>
+          <a href="/order">Cadastro de ordem de serviço</a>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-wrench"></i>
+          <a href="/order">Ordens de serviço</a>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <a href="/provider">Fornecedor</a>
+          <a href="/provider">Cadastro de fornecedor</a>
+        </div>
+        <div className="sidebar__link">
+          <i className="fa fa-industry"></i>
+          <a href="/provider">Fornecedores</a>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-seedling"></i>
+          <a href="/agriculturalinput">Cadastro de insumo</a>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-seedling"></i>
           <a href="/agriculturalinput">Insumos</a>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-users-cog"></i>
+          <a href="/employee">Cadastro de funcionário</a>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-users-cog"></i>
