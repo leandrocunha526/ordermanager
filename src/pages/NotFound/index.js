@@ -2,7 +2,7 @@ import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Container } from "./style.js";
 import Title from "../../components/title";
-import notFound from "../../images/notfound.svg";
+import notFound from "../../assets/notfound.svg";
 
 class NotFound extends Component {
   render() {
