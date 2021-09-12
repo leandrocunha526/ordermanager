@@ -39,18 +39,6 @@ const Sidebar = () => {
           <a href="/manufacturer">Máquinas</a>
         </div>
         <div className="sidebar__link">
-          <i className="fa fa-user"></i>
-          <a href="/user">Usuários</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fas fa-wrench"></i>
-          <a href="/order">Cadastro de ordem de serviço</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fas fa-wrench"></i>
-          <a href="/order">Ordens de serviço</a>
-        </div>
-        <div className="sidebar__link">
           <i className="fa fa-industry"></i>
           <a href="/provider">Cadastro de fornecedor</a>
         </div>

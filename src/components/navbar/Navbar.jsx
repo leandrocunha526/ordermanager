@@ -12,11 +12,12 @@ const Navbar = () => {
         <a href="/" className="active_link">
           Admin
         </a>
+        <a href="/">Cadastrar ordens de serviço</a>
+        <a href="/">Ordens de serviço cadastradas</a>
+        <a href="/">Usuários cadastrados</a>
       </div>
       <div className="navbar__right">
-        <a href="/#">
-          <img width="30" src={avatar} alt="avatar" />
-        </a>
+        <img width="30" src={avatar} alt="avatar" />
       </div>
     </nav>
   );
