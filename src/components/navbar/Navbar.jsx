@@ -12,9 +12,8 @@ const Navbar = ({ sidebarOpen, openSidebar }) => {
         <a href="/" className="active_link">
           Admin
         </a>
-        <a href="/">Cadastrar ordens de serviço</a>
-        <a href="/">Ordens de serviço cadastradas</a>
-        <a href="/">Usuários cadastrados</a>
+        <a href="/">Ordens de serviço</a>
+        <a href="/">Usuários</a>
       </div>
       <div className="navbar__right">
         <a href="/#">
