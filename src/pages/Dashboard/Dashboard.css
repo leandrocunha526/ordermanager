@@ -1,0 +1,32 @@
+dashboard {
+    background: #f3f4f6;
+    grid-area: main;
+    overflow-y: auto;
+}
+
+.dashboard__container {
+    padding: 10px 25px;
+}
+
+.dashboard__title{
+    display: flex;
+    align-items: center;
+}
+
+.dashboard__title > img {
+    max-height: 100px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.dashboard__greeting > h1 {
+    font-size: 24px;
+    color: #2e4a66;
+    margin-bottom: 1px;
+}
+
+.dashboard__greeting > p {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a5aaad;
+}

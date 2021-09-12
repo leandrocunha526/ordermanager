@@ -4,8 +4,11 @@ import { isAuthenticated } from "./services/auth";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
+import Dashboard from "./pages/Dashboard/Dashboard";
+
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
+
 import "./App.css";
 
 const App = () => {
@@ -41,11 +44,7 @@ const App = () => {
       <BrowserRouter>
         <Fragment>
           <Switch>
-            <PrivateRoute
-              exact
-              path="/dashboard"
-              component={() => <h1>Hi</h1>}
-            />
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} />
