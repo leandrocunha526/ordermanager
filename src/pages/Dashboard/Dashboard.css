@@ -1,4 +1,4 @@
-dashboard {
+main {
     background: #f3f4f6;
     grid-area: main;
     overflow-y: auto;
@@ -169,8 +169,8 @@ dashboard {
     font-size: 14px;
 }
 .card7 {
-    background: #fddcdf;
-    color: #000000;
+    background: #a19a2b;
+    color: #ffffff;
     text-align: center;
     padding: 25px;
     border-radius: 5px;
