@@ -36,14 +36,6 @@ dashboard {
     font-weight: 700;
     color: #a5aaad;
 }
-
-.dashboard__cards{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 30px;
-    margin: 20px 0;
-}
-
 .card{
     display: flex;
     flex-direction: column;
@@ -53,14 +45,6 @@ dashboard {
     border-radius: 5px;
     background: #ffffff;
     box-shadow: 5px 5px 13px #ededed, -5px 13 #ffffff;
-}
-.card_inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.card_inner > span {
-    font-size: 25px;
 }
 .charts {
     display: grid;
@@ -163,6 +147,38 @@ dashboard {
 .card4 {
     background: #fddcdf;
     color: #f65a6f;
+    text-align: center;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.card5 {
+    background: #ff0015;
+    color: #ffffff;
+    text-align: center;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.card6 {
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.card7 {
+    background: #fddcdf;
+    color: #000000;
+    text-align: center;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.card8 {
+    background: #75585b;
+    color: #ffffff;
     text-align: center;
     padding: 25px;
     border-radius: 5px;
