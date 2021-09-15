@@ -1,6 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 import hello from "../../assets/hello.svg";
+import Chart from "./../../components/charts/Charts";
 
 const Dashboard = () => {
   return (
@@ -21,6 +22,7 @@ const Dashboard = () => {
               </div>
               <i className="fa fa-usd"></i>
             </div>
+            <Chart />
           </div>
           <div className="charts__right">
             <div className="charts__right__title">
