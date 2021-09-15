@@ -4,7 +4,7 @@ import hello from "../../assets/hello.svg";
 
 const Dashboard = () => {
   return (
-    <main>
+    <dashboard>
       <div className="dashboard__container">
         <div className="dashboard__title">
           <img src={hello} alt="hello" />
@@ -14,7 +14,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </main>
+    </dashboard>
   );
 };
 
