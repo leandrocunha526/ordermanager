@@ -1,0 +1,56 @@
+main {
+    background: #f3f4f6;
+    grid-area: main;
+    overflow-y: auto;
+}
+
+.usertable__container {
+    padding: 10px 25px;
+}
+
+.button__warning{
+    background: none;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    padding: 6px 12px;
+    text-decoration: none;
+    background: #a04848;
+	border-color: #a04848;
+	color: #ffffff;
+}
+
+.button__primary{
+    background: none;
+    border: solid 1px transparent;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    padding: 6px 12px;
+    text-decoration: none;
+    background: #fff100;
+	border-color: #fff100;
+	color: #000000;
+}
+
+table {
+    border-collapse: collapse;
+    page-break-inside: auto;
+}
+
+thead th {
+    text-align: left;
+    border-bottom: 2px solid black;
+}
+
+tbody td {
+    padding: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+tbody tr:hover {
+    background-color: #eee;
+}
