@@ -1,7 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 import hello from "../../assets/hello.svg";
-import Chart from "./../../components/charts/Charts";
+import EmployeeBarChart from "../../components/charts/EmployeeBarChart";
 
 const Dashboard = () => {
   return (
@@ -18,20 +18,19 @@ const Dashboard = () => {
           <div className="charts__left">
             <div className="charts__left__title">
               <div>
-                <h1>Daily Orders</h1>
+                <h1>Funcionários</h1>
               </div>
               <i className="fa fa-usd"></i>
             </div>
-            <Chart />
-          </div>
+            <EmployeeBarChart />
+            </div>
           <div className="charts__right">
             <div className="charts__right__title">
               <div>
-                <h1>Registers</h1>
+                <h1>Registros</h1>
               </div>
               <i className="fa fa-usd"></i>
             </div>
-
             <div className="charts__right__cards">
               <div className="card1">
                 <h1>Fornecedores</h1>
