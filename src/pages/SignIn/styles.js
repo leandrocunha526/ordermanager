@@ -15,7 +15,7 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   p {
-    color: #0000ff;
+    color: #3ea175;
     margin-bottom: 20px;
     padding: 10px;
     width: 100%;
@@ -31,7 +31,7 @@ export const Form = styled.form`
     border-radius: 4px;
     &:focus {
       outline: none;
-      border-color: #0000ff;
+      border-color: #3ea175;
     }
     font-size: 20px;
     width: 100%;
@@ -42,7 +42,7 @@ export const Form = styled.form`
   button {
     color: #ffffff;
     font-size: 1em;
-    background: #0000ff;
+    background: #3ea175;
     height: 68px;
     border: 2px solid;
     border-radius: 5px;
