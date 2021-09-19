@@ -1,5 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
+import {Link} from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -12,55 +13,55 @@ const Sidebar = () => {
       <div className="sidebar__menu">
         <div className="sidebar__link active_menu_link">
           <i className="fa fa-home"></i>
-          <a href="/dashboard">Home</a>
+          <Link to="/dashboard">Home</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <a href="/manufacturer">Cadastro de marca</a>
+          <Link to="/manufacturer">Cadastro de marca</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <a href="/manufacturer">Marcas</a>
+          <Link to="/manufacturer">Marcas</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <a href="/model">Cadastro de modelo</a>
+          <Link to="/model">Cadastro de modelo</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <a href="/model">Modelos</a>
+          <Link to="/model">Modelos</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <a href="/manufacturer">Cadastro de máquina</a>
+          <Link to="/manufacturer">Cadastro de máquina</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <a href="/manufacturer">Máquinas</a>
+          <Link to="/manufacturer">Máquinas</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <a href="/provider">Cadastro de fornecedor</a>
+          <Link to="/provider">Cadastro de fornecedor</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <a href="/provider">Fornecedores</a>
+          <Link to="/provider">Fornecedores</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-seedling"></i>
-          <a href="/agriculturalinput">Cadastro de insumo</a>
+          <Link to="/agriculturalinput">Cadastro de insumo</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-seedling"></i>
-          <a href="/agriculturalinput">Insumos</a>
+          <Link to="/agriculturalinput">Insumos</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-users-cog"></i>
-          <a href="/employee">Cadastro de funcionário</a>
+          <Link to="/employee">Cadastro de funcionário</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-users-cog"></i>
-          <a href="/employee">Funcionários</a>
+          <Link to="/employee">Funcionários</Link>
         </div>
       </div>
     </div>

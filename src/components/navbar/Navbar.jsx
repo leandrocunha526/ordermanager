@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import avatar from "../../assets/avatar.svg";
+import {Link} from "react-router-dom";
 
 const Navbar = ({ sidebarOpen, openSidebar }) => {
   return (
@@ -9,11 +10,11 @@ const Navbar = ({ sidebarOpen, openSidebar }) => {
         <i className="fa fa-bars"></i>
       </div>
       <div className="navbar__left">
-        <a href="/" className="active_link">
+        <Link to="/dashboard" className="active_link">
           Admin
-        </a>
-        <a href="/">Ordens de serviço</a>
-        <a href="/">Usuários</a>
+        </Link>
+        <Link to="/">Ordens de serviço</Link>
+        <Link to="/users">Usuários</Link>
       </div>
       <div className="navbar__right">
         <a href="/#">
