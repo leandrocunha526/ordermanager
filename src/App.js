@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import UsersTable from "./pages/User/UsersTable";
 
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -45,6 +46,7 @@ const App = () => {
         <Fragment>
           <Switch>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/users" component={UsersTable} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} />
