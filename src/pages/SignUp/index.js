@@ -6,6 +6,7 @@ import Title from "../../components/title";
 
 class SignUp extends Component {
   state = {
+    name: "",
     email: "",
     password: "",
     error: "",
@@ -13,14 +14,15 @@ class SignUp extends Component {
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const { email, password } = this.state;
-    if (!email || !password) {
+    const {name, email, password } = this.state;
+    if (!name || !email || !password) {
       this.setState({
         error: "Insira todos os dados para se cadastrar",
       });
     } else {
       try {
         await api.post("register", {
+          name,
           email,
           password,
         });
@@ -38,6 +40,12 @@ class SignUp extends Component {
         <Form onSubmit={this.handleRegister}>
           <Title title="Registro" />
           {this.state.error && <p>{this.state.error}</p>}
+          <input
+            type="text"
+            placeholder="Nome"
+            value={this.state.name}
+            onChange={(e) => this.setState({ name: e.target.value })}
+          />
           <input
             type="email"
             placeholder="Email"
