@@ -10,7 +10,6 @@ main {
 .button__warning{
     border: solid 1px;
     border-radius: 5px;
-    font-size: 12px;
     font-weight: bold;
     padding: 6px 12px;
     background: #f44336;
@@ -21,7 +20,6 @@ main {
 .button__primary{
     border: solid 1px;
     border-radius: 5px;
-    font-size: 12px;
     font-weight: bold;
     padding: 6px 12px;
     text-decoration: none;
@@ -37,12 +35,14 @@ table {
 
 thead th {
     text-align: left;
-    border-bottom: 2px solid black;
+    padding: 0.5em;
+    border-bottom: 2px solid #000000;
 }
 
 tbody td {
+    text-align: left;
     padding: 0.5em;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid #000000;
 }
 
 tbody tr:hover {
