@@ -7,22 +7,22 @@ import Title from "../../components/title";
 
 class SignIn extends Component {
   state = {
-    email: "",
+    username: "",
     password: "",
     error: "",
   };
 
   handleLogin = async (e) => {
     e.preventDefault();
-    const { email, password } = this.state;
-    if (!email || !password) {
+    const { username, password } = this.state;
+    if (!username || !password) {
       this.setState({
         error: "Preencha seu nome de usuário e senha para continuar",
       });
     } else {
       try {
         const response = await api.post("login", {
-          email: email,
+          username: username,
           password: password,
           withCredentials: true,
           headers: {
@@ -48,10 +48,10 @@ class SignIn extends Component {
           <Title title="Entrar" />
           {this.state.error && <p>{this.state.error}</p>}
           <input
-            type="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={(e) => this.setState({ email: e.target.value })}
+            type="text"
+            placeholder="Nome de usuário"
+            value={this.state.username}
+            onChange={(e) => this.setState({ username: e.target.value })}
           />
           <input
             type="password"

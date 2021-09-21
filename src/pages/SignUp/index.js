@@ -8,14 +8,15 @@ class SignUp extends Component {
   state = {
     name: "",
     email: "",
+    username: "",
     password: "",
     error: "",
   };
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const {name, email, password } = this.state;
-    if (!name || !email || !password) {
+    const {name, username, email, password } = this.state;
+    if (!name || !username || !email || !password) {
       this.setState({
         error: "Insira todos os dados para se cadastrar",
       });
@@ -23,6 +24,7 @@ class SignUp extends Component {
       try {
         await api.post("register", {
           name,
+          username,
           email,
           password,
         });
@@ -45,6 +47,12 @@ class SignUp extends Component {
             placeholder="Nome"
             value={this.state.name}
             onChange={(e) => this.setState({ name: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Nome de usuário"
+            value={this.state.username}
+            onChange={(e) => this.setState({ username: e.target.value })}
           />
           <input
             type="email"

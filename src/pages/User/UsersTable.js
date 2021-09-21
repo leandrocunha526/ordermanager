@@ -47,6 +47,7 @@ class UsersTable extends Component {
               <tr>
                 <th>Id</th>
                 <th>Nome</th>
+                <th>Nome de usuário</th>
                 <th>Email</th>
                 <th>Data e hora de criação</th>
                 <th>Deletar</th>
@@ -58,6 +59,7 @@ class UsersTable extends Component {
                 <tr key={index}>
                   <td>{user.id}</td>
                   <td>{user.name}</td>
+                  <td>{user.username}</td>
                   <td>{user.email}</td>
                   <td>{user.created_at}</td>
                   <td>
