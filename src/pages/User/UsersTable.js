@@ -63,7 +63,7 @@ class UsersTable extends Component {
                   <td>
                     <button
                       type="button"
-                      className="button__warn"
+                      className="button__warning"
                       onClick={() => this.delete(user.id)}
                     >
                       Deletar
