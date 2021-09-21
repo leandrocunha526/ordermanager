@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Container } from "./style.js";
 import Title from "../../components/title";
 import notFound from "../../assets/notfound.svg";
+import {Link} from "react-router-dom";
 
 class NotFound extends Component {
   render() {
@@ -20,6 +21,7 @@ class NotFound extends Component {
             width: 560,
           }}
         />
+        <Link to="/dashboard">Retornar ao dashboard</Link>
       </Container>
     );
   }
