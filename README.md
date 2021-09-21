@@ -22,4 +22,4 @@
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fleandrocunha526%2Fordermanager.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fleandrocunha526%2Fordermanager?ref=badge_large)
 
-[![LICENSE](LICENSE.md)
+See [LICENSE](LICENSE.md)
