@@ -33,7 +33,7 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    api.get("/employee/list").then(({ data }) => {
+    api.get("/employee").then(({ data }) => {
       setEmployees(data);
     });
   }, []);
@@ -74,7 +74,7 @@ const Dashboard = () => {
         <div className="dashboard__title">
           <img src={hello} alt="hello" />
           <div className="dashboard__greeting">
-            <h1>Olá</h1>
+            <h1>Olá,</h1>
             <p>seja bem vindo ao seu dashboard</p>
           </div>
         </div>
