@@ -39,7 +39,7 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    api.get("/orders/list").then(({ data }) => {
+    api.get("/order/list").then(({ data }) => {
       setOrders(data);
     });
   }, []);
