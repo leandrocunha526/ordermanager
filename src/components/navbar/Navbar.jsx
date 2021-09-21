@@ -13,14 +13,14 @@ const Navbar = ({ sidebarOpen, openSidebar }) => {
         <Link to="/dashboard" className="active_link">
           Admin
         </Link>
-        <Link to="/">Ordens de serviço</Link>
+        <Link to="/orders">Ordens de serviço</Link>
         <Link to="/users">Usuários</Link>
       </div>
       <div className="navbar__right">
-        <a href="/#">
+        <a href="/dashboard">
           <i className="fa fa-search"></i>
         </a>
-        <a href="/#">
+        <a href="/dashboard">
           <img width="30" src={avatar} alt="avatar" />
         </a>
       </div>
