@@ -6,6 +6,8 @@ import "./styles/UserTable.css";
 class UsersTable extends Component {
   state = {
     users: [],
+    message: "",
+    error: ""
   };
   componentDidMount() {
     api
@@ -21,14 +23,16 @@ class UsersTable extends Component {
   async delete(id) {
     try {
       await api.delete(`/user/${id}`);
-      alert(
-        "Usuário excluído com sucesso você será redirecionado para o dashboard"
-      );
-      this.props.history.push("/dashboard");
+      this.setState({
+        message: "Usuário excluído com sucesso",
+      });
     } catch (err) {
-      console.log(err);
-    }
-  }
+      this.setState({
+        error: "Ocorreu um erro ao excluir o usuário:" + err,
+      });
+    };
+  };
+
   render() {
     return (
       <main>
@@ -36,13 +40,15 @@ class UsersTable extends Component {
           <div>
             <h1>Usuários cadastrados</h1>
           </div>
+          {this.state.message && <h3>{this.state.message}</h3>}
+          {this.state.error && <h3>{this.state.error}</h3>}
           <table>
             <thead>
               <tr>
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Data de criação</th>
+                <th>Data e hora de criação</th>
                 <th>Deletar</th>
                 <th>Editar</th>
               </tr>
@@ -57,7 +63,7 @@ class UsersTable extends Component {
                   <td>
                     <button
                       type="button"
-                      className="button__warning"
+                      className="button__warn"
                       onClick={() => this.delete(user.id)}
                     >
                       Deletar
