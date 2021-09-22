@@ -24,7 +24,7 @@ class UsersTable extends Component {
     try {
       await api.delete(`/user/${id}`);
       this.setState({
-        message: "Usuário excluído com sucesso",
+        message: "Usuário excluído com sucesso"
       });
     } catch (err) {
       this.setState({
@@ -49,7 +49,8 @@ class UsersTable extends Component {
                 <th>Nome</th>
                 <th>Nome de usuário</th>
                 <th>Email</th>
-                <th>Data e hora de criação</th>
+                <th>Registro</th>
+                <th>Atualização</th>
                 <th>Deletar</th>
                 <th>Editar</th>
               </tr>
@@ -62,6 +63,7 @@ class UsersTable extends Component {
                   <td>{user.username}</td>
                   <td>{user.email}</td>
                   <td>{user.created_at}</td>
+                  <td>{user.updated_at}</td>
                   <td>
                     <button
                       type="button"
