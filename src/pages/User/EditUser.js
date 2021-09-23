@@ -14,21 +14,20 @@ class EditUser extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
+      user: [{}],
       name: "",
       username: "",
       email: "",
       password: "",
-      message: ""
+      message: "",
     };
   }
 
   componentDidMount() {
     api.get("/user/"+this.props.match.params.id).then(res => {
+      const user = res.data;
       this.setState({
-        name: res.data.name,
-        username: res.data.username,
-        email: res.data.email,
-        password: res.data.password,
+       user
       });
     }).catch(error => {
       console.log(error);
@@ -82,7 +81,7 @@ class EditUser extends Component {
             <input
               type="text"
               name="name"
-              value={this.state.name}
+              value={this.state.user.name}
               onChange={this.onChangeName}
             />
 
@@ -90,7 +89,7 @@ class EditUser extends Component {
             <input
               type="text"
               name="username"
-              value={this.state.username}
+              value={this.state.user.username}
               onChange={this.onChangeUserName}
             />
 
@@ -98,7 +97,7 @@ class EditUser extends Component {
             <input
               type="email"
               name="email"
-              value={this.state.email}
+              value={this.state.user.email}
               onChange={this.onChangeEmail}
             />
 
@@ -106,7 +105,7 @@ class EditUser extends Component {
             <input
               type="password"
               name="password"
-              value={this.state.password}
+              value={this.state.user.password}
               onChange={this.onChangePassword}
             />
 
