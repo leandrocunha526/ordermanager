@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import UsersTable from "./pages/User/UsersTable";
 import EditUser from "./pages/User/EditUser";
+import Machine from "./pages/Machine/MachineTable";
 
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -49,6 +50,7 @@ const App = () => {
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/users" component={UsersTable} />
             <PrivateRoute path="/user/edit/:id" component={EditUser} />
+            <PrivateRoute path="/machine" component={Machine} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} exact path="*" />

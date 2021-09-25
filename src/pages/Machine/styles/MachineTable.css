@@ -1,0 +1,51 @@
+main {
+    grid-area: main;
+    overflow-y: auto;
+}
+
+.usertable__container {
+    padding: 10px 25px;
+}
+
+.button__warning{
+    border: solid 1px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 6px 12px;
+    background: #f44336;
+	border-color: #f44336;
+	color: #ffffff;
+}
+
+.button__primary{
+    border: solid 1px;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
+    background: #fff100;
+	border-color: #fff100;
+	color: #000000;
+}
+
+table {
+    border-collapse: collapse;
+    page-break-inside: auto;
+}
+
+thead th {
+    text-align: left;
+    padding: 0.5em;
+    border-bottom: 2px solid #000000;
+}
+
+tbody td {
+    text-align: left;
+    padding: 0.5em;
+    border-bottom: 2px solid #000000;
+}
+
+tbody tr:hover {
+    background-color: #eee;
+}
