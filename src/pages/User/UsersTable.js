@@ -11,7 +11,7 @@ class UsersTable extends Component {
   };
   componentDidMount() {
     api
-      .get("/user/list")
+      .get("api/users")
       .then((res) => {
         const users = res.data;
         this.setState({ users });
@@ -22,7 +22,7 @@ class UsersTable extends Component {
   }
   async delete(id) {
     try {
-      await api.delete(`/user/${id}`);
+      await api.delete(`/api/users/${id}`);
       this.setState({
         message: "Usuário excluído com sucesso"
       });
@@ -47,10 +47,8 @@ class UsersTable extends Component {
               <tr>
                 <th>Id</th>
                 <th>Nome</th>
+                <th>Último nome</th>
                 <th>Nome de usuário</th>
-                <th>Email</th>
-                <th>Registro</th>
-                <th>Atualização</th>
                 <th>Deletar</th>
                 <th>Editar</th>
               </tr>
@@ -59,11 +57,9 @@ class UsersTable extends Component {
               {this.state.users.map((user, index) => (
                 <tr key={index}>
                   <td>{user.id}</td>
-                  <td>{user.name}</td>
+                  <td>{user.firstName}</td>
+                  <td>{user.lastName}</td>
                   <td>{user.username}</td>
-                  <td>{user.email}</td>
-                  <td>{user.created_at}</td>
-                  <td>{user.updated_at}</td>
                   <td>
                     <button
                       type="button"

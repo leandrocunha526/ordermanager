@@ -7,24 +7,25 @@ class EditUser extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeName = this.onChangeName.bind(this);
+    this.onChangeFirstName = this.onChangeFirstName.bind(this);
+    this.onChangeLastName = this.onChangeLastName.bind(this);
     this.onChangeUserName = this.onChangeUserName.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      user: [{}],
+      user: [],
       name: "",
+      firstName: "",
+      lastName: "",
       username: "",
-      email: "",
       password: "",
       message: "",
     };
   }
 
   componentDidMount() {
-    api.get("/user/"+this.props.match.params.id).then(res => {
+    api.get("/api/users/"+this.props.match.params.id).then(res => {
       const user = res.data;
       this.setState({
        user
@@ -34,9 +35,14 @@ class EditUser extends Component {
     })
   }
 
-  onChangeName(e) {
+  onChangeFirstName(e) {
     this.setState({
       name: e.target.value,
+    });
+  }
+  onChangeLastName(e) {
+    this.setState({
+      firstName: e.target.value,
     });
   }
   onChangeUserName(e) {
@@ -63,7 +69,7 @@ class EditUser extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    api.put("/user/"+this.props.match.params.id, data).then(
+    api.put("/api/users/"+this.props.match.params.id, data).then(
       this.setState({
         message: "Usuário atualizado com sucesso"
       })
@@ -80,9 +86,17 @@ class EditUser extends Component {
             <label>Nome:</label>
             <input
               type="text"
-              name="name"
-              value={this.state.user.name}
-              onChange={this.onChangeName}
+              name="fistName"
+              value={this.state.user.firstName}
+              onChange={this.onChangeFirstName}
+            />
+
+            <label>Último nome:</label>
+            <input
+              type="text"
+              name="lastName"
+              value={this.state.user.lastName}
+              onChange={this.onChangeLastName}
             />
 
             <label>Nome de usuário:</label>
@@ -91,14 +105,6 @@ class EditUser extends Component {
               name="username"
               value={this.state.user.username}
               onChange={this.onChangeUserName}
-            />
-
-            <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              value={this.state.user.email}
-              onChange={this.onChangeEmail}
             />
 
             <label>Senha:</label>

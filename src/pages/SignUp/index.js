@@ -6,8 +6,8 @@ import Title from "../../components/title";
 
 class SignUp extends Component {
   state = {
-    name: "",
-    email: "",
+    firstName: "",
+    lastName: "",
     username: "",
     password: "",
     error: "",
@@ -15,17 +15,17 @@ class SignUp extends Component {
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const {name, username, email, password } = this.state;
-    if (!name || !username || !email || !password) {
+    const {firstName, lastName, username, password } = this.state;
+    if (!firstName || !lastName || !username || !password) {
       this.setState({
         error: "Insira todos os dados para se cadastrar",
       });
     } else {
       try {
-        await api.post("register", {
-          name,
+        await api.post("/api/users/register", {
+          firstName,
+          lastName,
           username,
-          email,
           password,
         });
         this.props.history.push("/");
@@ -44,21 +44,21 @@ class SignUp extends Component {
           {this.state.error && <p>{this.state.error}</p>}
           <input
             type="text"
-            placeholder="Nome"
-            value={this.state.name}
-            onChange={(e) => this.setState({ name: e.target.value })}
+            placeholder="Primeiro Nome"
+            value={this.state.firstName}
+            onChange={(e) => this.setState({ firstName: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Último Nome"
+            value={this.state.lastName}
+            onChange={(e) => this.setState({ lastName: e.target.value })}
           />
           <input
             type="text"
             placeholder="Nome de usuário"
             value={this.state.username}
             onChange={(e) => this.setState({ username: e.target.value })}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={(e) => this.setState({ email: e.target.value })}
           />
           <input
             type="password"
