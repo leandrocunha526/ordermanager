@@ -11,7 +11,7 @@ class UsersTable extends Component {
   };
   componentDidMount() {
     api
-      .get("api/users")
+      .get("api/users/list")
       .then((res) => {
         const users = res.data;
         this.setState({ users });
@@ -28,7 +28,7 @@ class UsersTable extends Component {
       });
     } catch (err) {
       this.setState({
-        error: "Ocorreu um erro ao excluir o usuário:" + err,
+        error: "Ocorreu um erro ao excluir o usuário:" ,
       });
     };
   };
@@ -46,7 +46,7 @@ class UsersTable extends Component {
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Nome</th>
+                <th>Primeiro nome</th>
                 <th>Último nome</th>
                 <th>Nome de usuário</th>
                 <th>Deletar</th>
