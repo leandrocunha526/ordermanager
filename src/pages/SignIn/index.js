@@ -36,7 +36,7 @@ class SignIn extends Component {
         this.props.history.push("/dashboard");
       } catch (err) {
         this.setState({
-          error: "Ocorreu um problema com o login, verifique suas credenciais",
+          error: "Ocorreu um problema com o login, verifique suas credenciais. " + err,
         });
       }
     }

@@ -31,7 +31,7 @@ class SignUp extends Component {
         this.props.history.push("/");
       } catch (err) {
         this.setState({
-          error: "Ocorreu um problema com o cadastro ou usuário já cadastrado",
+          error: "Ocorreu um problema com o cadastro ou usuário já cadastrado. " + err,
         });
       }
     }
