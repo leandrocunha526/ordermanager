@@ -15,55 +15,49 @@ const Dashboard = () => {
   const [models, setModels] = useState([]);
 
   useEffect(() => {
-    api.get("/user/list").then(({ data }) => {
+    api.get("/api/users/list").then(({ data }) => {
       setUsers(data);
     });
   }, []);
 
   useEffect(() => {
-    api.get("/provider/list").then(({ data }) => {
+    api.get("/api/providers/list").then(({ data }) => {
       setProviders(data);
     });
   }, []);
 
   useEffect(() => {
-    api.get("/agriculturalinput/list").then(({ data }) => {
+    api.get("/api/agriculturalinputs/list").then(({ data }) => {
       setAgriculturalInputs(data);
     });
   }, []);
 
   useEffect(() => {
-    api.get("/employee").then(({ data }) => {
+    api.get("/api/employees/list").then(({ data }) => {
       setEmployees(data);
     });
   }, []);
 
   useEffect(() => {
-    api.get("/order/list").then(({ data }) => {
+    api.get("/api/orders/list").then(({ data }) => {
       setOrders(data);
     });
   }, []);
 
   useEffect(() => {
-    api.get("/order/list").then(({ data }) => {
-      setOrders(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    api.get("/machine/list").then(({ data }) => {
+    api.get("/api/machines/list").then(({ data }) => {
       setMachinhes(data);
     });
   }, []);
 
   useEffect(() => {
-    api.get("/manufacturer/list").then(({ data }) => {
+    api.get("/api/manufacturers/list").then(({ data }) => {
       setManufacturers(data);
     });
   }, []);
 
   useEffect(() => {
-    api.get("/models/list").then(({ data }) => {
+    api.get("/api/modelsmachine/list").then(({ data }) => {
       setModels(data);
     });
   }, []);
