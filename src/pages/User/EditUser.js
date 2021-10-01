@@ -8,7 +8,7 @@ const EditUser = (props) => {
 
     const {id} = useParams();
 
-    const {register, handleSubmit, setValue} = useForm({});
+    const {register, handleSubmit, setValue, formState: { errors }} = useForm({});
 
     useEffect(() => {
       api.get(`/api/users/${id}`).then((result) => {
@@ -38,30 +38,35 @@ const EditUser = (props) => {
             <label>Primeiro nome</label>
             <input
               type="text"
+              id="firstName"
               name="firstName"
-              {...register("firstName")}
+              {...register("firstName",  { required: true })}
             />
+             {errors.firstName && errors.firstName.type === "required" && <span>Primeiro nome é um campo obrigatório</span>}
 
             <label>Último nome</label>
             <input
               type="text"
               name="lastName"
-              {...register("lastName")}
+              {...register("lastName", { required: true })}
             />
+            {errors.lastName && errors.lastName.type === "required" && <span>Último nome é um campo obrigatório</span>}
 
            <label>Nome de usuário</label>
             <input
               type="text"
               name="username"
-              {...register("username")}
+              {...register("username", { required: true })}
             />
+            {errors.username && errors.username.type === "required" && <span>Nome de usuário é um campo obrigatório</span>}
 
             <label>Senha</label>
             <input
               type="password"
               name="password"
-              {...register("password")}
+              {...register("password", { required: true })}
             />
+             {errors.password && errors.password.type === "required" && <span>Senha é um campo obrigatório</span>}
 
             <button type="submit">Enviar</button>
           </Form>
