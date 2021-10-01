@@ -17,11 +17,11 @@ const Sidebar = () => {
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <Link to="/manufacturer">Cadastro de marca</Link>
+          <Link to="/manufacturer/register">Cadastro de marca</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <Link to="/manufacturer">Marcas</Link>
+          <Link to="/manufacturer/list">Marcas</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
@@ -33,11 +33,11 @@ const Sidebar = () => {
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <Link to="/manufacturer">Cadastro de máquina</Link>
+          <Link to="/machine/register">Cadastro de máquina</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <Link to="/machine">Máquinas</Link>
+          <Link to="/machine/list">Máquinas</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
@@ -57,11 +57,11 @@ const Sidebar = () => {
         </div>
         <div className="sidebar__link">
           <i className="fas fa-users-cog"></i>
-          <Link to="/employee">Cadastro de funcionário</Link>
+          <Link to="/employee/register">Cadastro de funcionário</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-users-cog"></i>
-          <Link to="/employee">Funcionários</Link>
+          <Link to="/employee/list">Funcionários</Link>
         </div>
       </div>
     </div>
