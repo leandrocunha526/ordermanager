@@ -38,7 +38,7 @@ class ManufacturerTable extends Component {
       <main>
         <div className="usertable__container">
           <div>
-            <h1>Usuários cadastrados</h1>
+            <h1>Funcionários cadastrados</h1>
           </div>
           {this.state.message && <h3>{this.state.message}</h3>}
           {this.state.error && <h3>{this.state.error}</h3>}
