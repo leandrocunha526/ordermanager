@@ -28,7 +28,7 @@ class ManufacturerTable extends Component {
       });
     } catch (err) {
       this.setState({
-        error: "Ocorreu um erro ao excluir a marca:",
+        error: "Ocorreu um erro ao excluir o funcionário:",
       });
     };
   };
