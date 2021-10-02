@@ -13,6 +13,7 @@ import UsersTable from "./pages/User/UsersTable";
 import EditUser from "./pages/User/EditUser";
 
 import Machine from "./pages/Machine/MachineTable";
+
 import Manufacturer from "./pages/Manufacturer/Manufacturer";
 import ManufacturerTable from "./pages/Manufacturer/ManufacturerTable";
 import ManufacturerEdit from "./pages/Manufacturer/ManufacturerEdit";
@@ -20,6 +21,10 @@ import ManufacturerEdit from "./pages/Manufacturer/ManufacturerEdit";
 import Employee from "./pages/Employee/Employee";
 import EmployeeTable from "./pages/Employee/EmployeeTable";
 import EmployeeEdit from "./pages/Employee/EmployeeEdit";
+
+import Provider from "./pages/Provider/Provider";
+import ProviderTable from "./pages/Provider/ProviderTable";
+import ProviderEdit from "./pages/Provider/ProviderEdit";
 
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -69,6 +74,9 @@ const App = () => {
             <PrivateRoute path="/employee/register" component={Employee} />
             <PrivateRoute path="/employee/list" component={EmployeeTable} />
             <PrivateRoute path="/employee/edit/:id" component={EmployeeEdit} />
+            <PrivateRoute path="/provider/register" component={Provider} />
+            <PrivateRoute path="/provider/list" component={ProviderTable} />
+            <PrivateRoute path="/provider/edit/:id" component={ProviderEdit} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} exact path="*" />
