@@ -11,7 +11,7 @@ class ProviderTable extends Component {
   };
   componentDidMount() {
     api
-      .get("api/provider/list")
+      .get("api/providers/list")
       .then((res) => {
         const providers = res.data;
         this.setState({ providers });
@@ -68,6 +68,7 @@ class ProviderTable extends Component {
                   <td>{provider.cnpj}</td>
                   <td>{provider.email}</td>
                   <td>{provider.phone}</td>
+                  <td>{provider.city}</td>
                   <td>{provider.street}</td>
                   <td>{provider.district}</td>
                   <td>{provider.state}</td>

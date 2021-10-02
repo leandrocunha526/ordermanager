@@ -25,7 +25,7 @@ class SignUp extends Component {
     const {corporateName, cnpj, email, phone, street, city, district, state, country, zipcode} = this.state;
     if (!corporateName || !cnpj || !email || !phone || !street || !city || !district || !state || !country || !zipcode) {
       this.setState({
-        error: "Preencha o campo para cadastrar um fornecedor",
+        error: "Preencha todos os campo para cadastrar um fornecedor",
       });
     } else {
       try {

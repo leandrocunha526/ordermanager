@@ -14,9 +14,10 @@ const EditUser = (props) => {
       api.get(`/api/providers/${id}`).then((result) => {
         setValue("id", result.data.id);
         setValue("corporateName", result.data.corporateName);
-        setValue("cpnj", result.data.cpnj);
+        setValue("cnpj", result.data.cnpj);
         setValue("email", result.data.email);
         setValue("phone", result.data.phone);
+        setValue("street", result.data.street);
         setValue("city", result.data.city);
         setValue("district", result.data.district);
         setValue("state", result.data.state);
@@ -27,7 +28,7 @@ const EditUser = (props) => {
 
     const onSubmit = (data) => {
       api.put(`/api/providers/edit/${id}`, data).then(() => {
-        props.history.push("/providers/list");
+        props.history.push("/provider/list");
       }).catch(error => {
         console.log(error)
       })
@@ -53,9 +54,9 @@ const EditUser = (props) => {
             type="text"
             placeholder="CNPJ"
             id="cpnj"
-            {...register("cpnj", { required: true })}
+            {...register("cnpj", { required: true })}
           />
-          {errors.cpnj && errors.cpnj.type === "required" && <span>CNPJ é um campo obrigatório</span>}
+          {errors.cnpj && errors.cnpj.type === "required" && <span>CNPJ é um campo obrigatório</span>}
 
           <label>E-mail</label>
           <input
