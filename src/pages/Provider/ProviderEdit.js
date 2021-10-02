@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import api from "../../services/api";
 import { withRouter, useParams } from "react-router-dom";
-import { Container, Form } from "./styles/ManufacturerFormStyle";
+import { Container, Form } from "./styles/ProviderFormStyle";
 import { useForm } from "react-hook-form";
 
 const EditUser = (props) => {

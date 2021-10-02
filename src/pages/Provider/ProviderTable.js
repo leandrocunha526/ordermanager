@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import api from "../../services/api";
 import { withRouter, Link } from "react-router-dom";
-import "./styles/ManufacturerTable.css";
+import "./styles/ProviderTable";
 
 class ProviderTable extends Component {
   state = {
