@@ -29,7 +29,7 @@ class SignUp extends Component {
       });
     } else {
       try {
-        await api.post("/api/manufacturers/register", {
+        await api.post("/api/providers/register", {
           corporateName,
           cnpj,
           email,
