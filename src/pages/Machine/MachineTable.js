@@ -28,7 +28,7 @@ class UsersTable extends Component {
       });
     } catch (err) {
       this.setState({
-        error: "Ocorreu um erro ao excluir o usuário:" + err,
+        error: "Ocorreu o seguinte problema ao excluir a máquina: " + err,
       });
     };
   };

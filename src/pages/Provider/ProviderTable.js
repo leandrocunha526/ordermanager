@@ -28,7 +28,7 @@ class ProviderTable extends Component {
       });
     } catch (err) {
       this.setState({
-        error: "Ocorreu um erro ao excluir o fornecedor:",
+        error: "Ocorreu o seguinte erro ao excluir o fornecedor: " + err,
       });
     };
   };

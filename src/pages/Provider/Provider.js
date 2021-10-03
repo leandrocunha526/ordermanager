@@ -46,7 +46,7 @@ class Provider extends Component {
         })
       } catch (err) {
         this.setState({
-          error: "Ocorreu um problema com o cadastro " + err,
+          error: "Ocorreu o seguinte problema com o cadastro: " + err,
         });
       }
     }

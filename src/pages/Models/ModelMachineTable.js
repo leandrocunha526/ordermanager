@@ -28,7 +28,7 @@ class ModelMachineTable extends Component {
       });
     } catch (err) {
       this.setState({
-        error: "Ocorreu um erro ao excluir o modelo:" + err,
+        error: "Ocorreu o seguinte erro ao excluir o modelo: " + err,
       });
     };
   };
