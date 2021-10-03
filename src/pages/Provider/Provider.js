@@ -4,7 +4,7 @@ import api from "../../services/api";
 import { Form, Container } from "./styles/ProviderFormStyle";
 import Title from "../../components/title";
 
-class SignUp extends Component {
+class Provider extends Component {
   state = {
     corporateName: "",
     cnpj: "",
@@ -146,4 +146,4 @@ class SignUp extends Component {
   }
 }
 
-export default withRouter(SignUp);
+export default withRouter(Provider);
