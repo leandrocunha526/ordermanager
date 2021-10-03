@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import api from "../../services/api";
 import { withRouter, Link } from "react-router-dom";
 import "./styles/EmployeeTable.css";
+import Moment from 'react-moment';
 
 class ManufacturerTable extends Component {
   state = {
@@ -60,7 +61,7 @@ class ManufacturerTable extends Component {
                 <tr key={index}>
                   <td>{employee.id}</td>
                   <td>{employee.name}</td>
-                  <td>{employee.birthday}</td>
+                  <td><Moment format="DD/MM/YYYY">{employee.birthday}</Moment></td>
                   <td>{employee.salary}</td>
                   <td>{employee.cpf}</td>
                   <td>{employee.phone}</td>
