@@ -25,11 +25,11 @@ const Sidebar = () => {
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <Link to="/model">Cadastro de modelo</Link>
+          <Link to="/models/register">Cadastro de modelo</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <Link to="/model">Modelos</Link>
+          <Link to="/models">Modelos</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>

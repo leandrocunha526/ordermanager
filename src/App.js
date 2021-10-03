@@ -26,6 +26,9 @@ import Provider from "./pages/Provider/Provider";
 import ProviderTable from "./pages/Provider/ProviderTable";
 import ProviderEdit from "./pages/Provider/ProviderEdit";
 
+import ModelMachine from "./pages/Models/ModelMachine";
+import ModelMachineTable from "./pages/Models/ModelMachineTable";
+
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 
@@ -77,6 +80,8 @@ const App = () => {
             <PrivateRoute path="/provider/register" component={Provider} />
             <PrivateRoute path="/provider/list" component={ProviderTable} />
             <PrivateRoute path="/provider/edit/:id" component={ProviderEdit} />
+            <PrivateRoute path="/models/register" component={ModelMachine} />
+            <PrivateRoute path="/models" component={ModelMachineTable} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} exact path="*" />
