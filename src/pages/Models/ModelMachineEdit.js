@@ -25,11 +25,6 @@ const ModelMachineEdit = (props) => {
         });
       }, []);
 
-      function handleSelectManufactureer(event) {
-        const manufacturer = event.target.value;
-        setManufacturers(manufacturer);
-      }
-
       const onSubmit = (data) => {
         api.put(`/api/modelsmachine/edit/${id}`, data).then(() => {
           props.history.push("/models");
@@ -50,15 +45,14 @@ const ModelMachineEdit = (props) => {
                 name="description"
                 {...register("description",  { required: true })}
               />
-               {errors.description && errors.description.type === "required" && <span>Nome da marca é um campo obrigatório</span>}
+               {errors.description && errors.description.type === "required" && <span>Nome do modelo é um campo obrigatório</span>}
 
                <label>Fabricante</label>
                <select
                 name="manufacturerId"
                 id="manufacturerId"
-                value="manufacturerId"
-                onChange={handleSelectManufactureer}
-                {...register("manufacturerId",  { required: true })}>
+                {...register("manufacturerId", { required: true })}
+                >
 
                 <option value="0">Selecione um fabricante</option>
 
@@ -68,8 +62,6 @@ const ModelMachineEdit = (props) => {
                 </option>
                 ))}
                </select>
-               {errors.manufacturerId && errors.manufacturerId.type === "required" && <span>Fabricante é um campo obrigatório</span>}
-
               <button type="submit">Enviar</button>
             </Form>
           </Container>
