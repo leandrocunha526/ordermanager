@@ -28,3 +28,20 @@ To help manage warehouse, culminate business intelligence, statistics, data ware
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fleandrocunha526%2Fordermanager.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fleandrocunha526%2Fordermanager?ref=badge_large)
 
 See [LICENSE](LICENSE.md)
+
+## Frontend
+
+- [Order manager Dotnet](https://github.com/leandrocunha526/ordermanager-dotnet)
+
+## Documentation
+
+- [React](https://pt-br.reactjs.org/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Moment](https://momentjs.com/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Font awesome](https://fontawesome.com/)
+- [React ChartJS](https://github.com/reactchartjs/react-chartjs-2)
+- [Styled Component](https://styled-components.com/)
+- [Serve](https://github.com/vercel/serve)
+- [JSPDF](https://github.com/parallax/jsPDF)
+- [React Router DOM](https://github.com/ReactTraining/react-router)
