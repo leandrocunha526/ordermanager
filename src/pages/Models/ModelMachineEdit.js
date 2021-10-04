@@ -43,7 +43,7 @@ const ModelMachineEdit = (props) => {
           <Container>
             <Form  onSubmit={handleSubmit(onSubmit)}>
               <h1>Editar modelo</h1>
-              <label>Nome da marca</label>
+              <label>Nome do modelo</label>
               <input
                 type="text"
                 id="description"
