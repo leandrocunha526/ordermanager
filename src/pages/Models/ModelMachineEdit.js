@@ -52,7 +52,7 @@ const ModelMachineEdit = (props) => {
               />
                {errors.description && errors.description.type === "required" && <span>Nome da marca é um campo obrigatório</span>}
 
-               <label>Modelo</label>
+               <label>Fabricante</label>
                <select
                 name="manufacturerId"
                 id="manufacturerId"
@@ -68,7 +68,7 @@ const ModelMachineEdit = (props) => {
                 </option>
                 ))}
                </select>
-               {errors.manufacturerId && errors.manufacturerId.type === "required" && <span>Modelo é um campo obrigatório</span>}
+               {errors.manufacturerId && errors.manufacturerId.type === "required" && <span>Fabricante é um campo obrigatório</span>}
 
               <button type="submit">Enviar</button>
             </Form>
