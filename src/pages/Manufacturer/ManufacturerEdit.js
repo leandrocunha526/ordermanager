@@ -18,7 +18,7 @@ const ManufacturerEdit = (props) => {
     });
 
     const onSubmit = (data) => {
-      api.put(`/api/manufacturer/edit/${id}`, data).then(() => {
+      api.put(`/api/manufacturers/edit/${id}`, data).then(() => {
         props.history.push("/manufacturer/list");
       }).catch(error => {
         console.log(error)
