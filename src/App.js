@@ -28,6 +28,7 @@ import ProviderEdit from "./pages/Provider/ProviderEdit";
 
 import ModelMachine from "./pages/Models/ModelMachine";
 import ModelMachineTable from "./pages/Models/ModelMachineTable";
+import ModelMachineEdit from "./pages/Models/ModelMachineEdit";
 
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -82,6 +83,7 @@ const App = () => {
             <PrivateRoute path="/provider/edit/:id" component={ProviderEdit} />
             <PrivateRoute path="/models/register" component={ModelMachine} />
             <PrivateRoute path="/models" component={ModelMachineTable} />
+            <PrivateRoute path="/model/edit/:id" component={ModelMachineEdit} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} exact path="*" />

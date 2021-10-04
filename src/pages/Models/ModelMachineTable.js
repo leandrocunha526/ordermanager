@@ -69,7 +69,7 @@ class ModelMachineTable extends Component {
                   </td>
                   <td>
                     <Link
-                      to={"/user/edit/" + modelsmachine.id}
+                      to={"/model/edit/" + modelsmachine.id}
                       className="button__primary"
                     >
                       Editar
