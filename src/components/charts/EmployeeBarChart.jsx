@@ -13,7 +13,7 @@ const EmployeeBarChart = () => {
         api.get("/api/employees/list")
         .then(res => {
             for(const dataObj of res.data){
-                employee_salary.push(parseInt(dataObj.salary));
+                employee_salary.push(parseFloat(dataObj.salary));
                 employee_birthday.push(parseInt(dataObj.birthday));
 
             }
