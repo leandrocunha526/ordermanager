@@ -29,7 +29,7 @@ To help manage warehouse, culminate business intelligence, statistics, data ware
 
 See [LICENSE](LICENSE.md)
 
-## Frontend
+## Backend
 
 - [Order manager Dotnet](https://github.com/leandrocunha526/ordermanager-dotnet)
 
