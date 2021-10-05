@@ -20,7 +20,7 @@ const EmployeeBarChart = () => {
             setChartData({
                 labels: employee_birthday,
                 datasets: [{
-                                             label: 'Salario do funcionário (R$)',
+                                             label: 'Salário do funcionário (R$)',
                                              data: employee_salary,
                                              backgroundColor: [
                                                  'rgba(255, 99, 132, 0.2)',
