@@ -16,14 +16,15 @@ class Provider extends Component {
     state: "",
     country: "",
     zipcode: "",
+    establishmentNumber: "",
     error: "",
     message: "",
   };
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const {corporateName, cnpj, email, phone, street, city, district, state, country, zipcode} = this.state;
-    if (!corporateName || !cnpj || !email || !phone || !street || !city || !district || !state || !country || !zipcode) {
+    const {corporateName, cnpj, email, phone, street, city, district, state, country, zipcode, establishmentNumber} = this.state;
+    if (!corporateName || !cnpj || !email || !phone || !street || !city || !district || !state || !country || !zipcode || establishmentNumber) {
       this.setState({
         error: "Preencha todos os campo para cadastrar um fornecedor",
       });
@@ -39,7 +40,8 @@ class Provider extends Component {
           district,
           state,
           country,
-          zipcode
+          zipcode,
+          establishmentNumber
         });
         this.setState({
           message: "Salvo com sucesso"
@@ -137,6 +139,14 @@ class Provider extends Component {
             placeholder="CEP"
             value={this.state.zipcode}
             onChange={(e) => this.setState({ zipcode: e.target.value })}
+          />
+
+          <label>Número do estabelecimento</label>
+          <input
+            type="number"
+            placeholder="Número do estabelecimento"
+            value={this.state.establishmentNumber}
+            onChange={(e) => this.setState({ establishmentNumber: e.target.value })}
           />
           <button type="submit">Enviar</button>
         </Form>

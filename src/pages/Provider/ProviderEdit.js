@@ -23,6 +23,7 @@ const EditUser = (props) => {
         setValue("state", result.data.state);
         setValue("country", result.data.country);
         setValue("zipcode", result.data.zipcode);
+        setValue("establishmentNumber", result.data.establishmentNumber);
       });
     });
 
@@ -129,6 +130,15 @@ const EditUser = (props) => {
             {...register("zipcode", { required: true })}
           />
           {errors.zipcode && errors.zipcode.type === "required" && <span>CEP é um campo obrigatório</span>}
+
+          <label>Número do estabelecimento</label>
+          <input
+            type="number"
+            placeholder="Número do estabelecimento"
+            id="establishmentNumber"
+            {...register("establishmentNumber", { required: true })}
+          />
+          {errors.establishmentNumber && errors.establishmentNumber.type === "required" && <span>Número do estabelecimento é um campo obrigatório</span>}
 
             <button type="submit">Enviar</button>
           </Form>

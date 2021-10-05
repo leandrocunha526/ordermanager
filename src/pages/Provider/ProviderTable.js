@@ -56,6 +56,7 @@ class ProviderTable extends Component {
                 <th>Estado</th>
                 <th>País</th>
                 <th>CEP</th>
+                <th>Número do estabelecimento</th>
                 <th>Deletar</th>
                 <th>Editar</th>
               </tr>
@@ -74,6 +75,7 @@ class ProviderTable extends Component {
                   <td>{provider.state}</td>
                   <td>{provider.country}</td>
                   <td>{provider.zipcode}</td>
+                  <td>{provider.establishmentNumber}</td>
                   <td>
                     <button
                       type="button"
