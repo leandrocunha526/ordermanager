@@ -68,4 +68,5 @@ export const Form = styled.form`
     border-radius: 4px;
     font-size: 20px;
     width: 100%;
+  }
 `;
