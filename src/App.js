@@ -12,7 +12,9 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import UsersTable from "./pages/User/UsersTable";
 import EditUser from "./pages/User/EditUser";
 
-import Machine from "./pages/Machine/MachineTable";
+import Machine from "./pages/Machine/Machine";
+import MachineTable from "./pages/Machine/MachineTable";
+import MachineEdit from "./pages/Machine/MachineEdit";
 
 import Manufacturer from "./pages/Manufacturer/Manufacturer";
 import ManufacturerTable from "./pages/Manufacturer/ManufacturerTable";
@@ -71,7 +73,9 @@ const App = () => {
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/users" component={UsersTable} />
             <PrivateRoute path="/user/edit/:id" component={EditUser} />
-            <PrivateRoute path="/machine/list" component={Machine} />
+            <PrivateRoute path="/machine/register" component={Machine} />
+            <PrivateRoute path="/machine/list" component={MachineTable} />
+            <PrivateRoute path="/machine/edit/:id" component={MachineEdit} />
             <PrivateRoute path="/manufacturer/register" component={Manufacturer} />
             <PrivateRoute path="/manufacturer/list" component={ManufacturerTable} />
             <PrivateRoute path="/manufacturer/edit/:id" component={ManufacturerEdit} />
