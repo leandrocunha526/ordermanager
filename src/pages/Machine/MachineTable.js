@@ -24,7 +24,7 @@ class UsersTable extends Component {
     try {
       await api.delete(`/machine/${id}`);
       this.setState({
-        message: "Usuário excluído com sucesso"
+        message: "Máquina excluído com sucesso"
       });
     } catch (err) {
       this.setState({
