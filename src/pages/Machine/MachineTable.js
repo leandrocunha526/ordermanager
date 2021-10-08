@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import "./styles/MachineTable.css";
 import Moment from "react-moment";
 
-class UsersTable extends Component {
+class MachineTable extends Component {
   state = {
     machines: [],
     message: "",
@@ -94,4 +94,4 @@ class UsersTable extends Component {
   }
 }
 
-export default withRouter(UsersTable);
+export default withRouter(MachineTable);

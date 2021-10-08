@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import "./styles/EmployeeTable.css";
 import Moment from 'react-moment';
 
-class ManufacturerTable extends Component {
+class EmployeerTable extends Component {
   state = {
     employees: [],
     message: "",
@@ -92,4 +92,4 @@ class ManufacturerTable extends Component {
   }
 }
 
-export default withRouter(ManufacturerTable);
+export default withRouter(EmployeerTable);

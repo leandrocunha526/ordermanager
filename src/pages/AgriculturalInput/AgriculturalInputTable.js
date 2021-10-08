@@ -3,7 +3,7 @@ import api from "../../services/api";
 import { withRouter, Link } from "react-router-dom";
 import "./styles/AgriculturalInputTable.css";
 
-class AgriculturalInput extends Component {
+class AgriculturalInputTable extends Component {
   state = {
     agriculturalinputs: [],
     message: "",
@@ -90,4 +90,4 @@ class AgriculturalInput extends Component {
     );
   }
 }
-export default withRouter(AgriculturalInput);
+export default withRouter(AgriculturalInputTable);

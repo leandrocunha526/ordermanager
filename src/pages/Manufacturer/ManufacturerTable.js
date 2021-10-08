@@ -3,7 +3,7 @@ import api from "../../services/api";
 import { withRouter, Link } from "react-router-dom";
 import "./styles/ManufacturerTable.css";
 
-class UsersTable extends Component {
+class ManufacturerTable extends Component {
   state = {
     manufacturers: [],
     message: "",
@@ -83,4 +83,4 @@ class UsersTable extends Component {
   }
 }
 
-export default withRouter(UsersTable);
+export default withRouter(ManufacturerTable);
