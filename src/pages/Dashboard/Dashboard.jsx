@@ -64,12 +64,47 @@ const Dashboard = () => {
 
   return (
     <main>
-      <div className="dashboard__container">
-        <div className="dashboard__title">
+      <div className="main__container">
+        <div className="main__title">
           <img src={hello} alt="hello" />
-          <div className="dashboard__greeting">
+          <div className="main__greeting">
             <h1>Olá,</h1>
             <p>seja bem vindo ao seu dashboard</p>
+          </div>
+        </div>
+        <div className="main__cards">
+          <div className="card">
+            <i className="fa fa-user-o fa-2x text-lightblue"></i>
+            <div className="card_inner">
+              <p className="text-primary-p">Número de usuáros</p>
+              <span className="font-bold text-title">{users.length}</span>
+            </div>
+          </div>
+
+          <div className="card">
+            <i className="fa fa-calendar fa-2x text-red"></i>
+            <div className="card_inner">
+              <p className="text-primary-p">Ordens de serviço</p>
+              <span className="font-bold text-title">{orders.length}</span>
+            </div>
+          </div>
+
+          <div className="card">
+            <i className="fa fa-users fa-2x text-lightblue"></i>
+            <div className="card_inner">
+              <p className="text-primary-p">Fornecedores</p>
+              <span className="font-bold text-title">{providers.length}</span>
+            </div>
+          </div>
+
+          <div className="card">
+            <i className="fa fa-bug fa-2x text-blue"></i>
+            <div className="card_inner">
+              <p className="text-primary-p">Insumos</p>
+              <span className="font-bold text-title">
+                {agriculturalinputs.length}
+              </span>
+            </div>
           </div>
         </div>
         <div className="charts">
@@ -91,37 +126,39 @@ const Dashboard = () => {
             </div>
             <div className="charts__right__cards">
               <div className="card1">
-                <h1>Fornecedores</h1>
-                <h1>{providers.length}</h1>
+                <h1>Máquinas</h1>
+                <h1>{machines.length}</h1>
               </div>
               <div className="card2">
-                <h1>Insumos</h1>
-                <h1>{agriculturalinputs.length}</h1>
+                <h1>Modelos</h1>
+                <h1>{models.length}</h1>
               </div>
               <div className="card3">
-                <h1>Usuários</h1>
-                <h1>{users.length}</h1>
+                <h1>Marca</h1>
+                <h1>{manufacturers.length}</h1>
               </div>
               <div className="card4">
                 <h1>Funcionários</h1>
                 <h1>{employees.length}</h1>
               </div>
-              <div className="card5">
+            </div>
+          </div>
+        </div>
+        <div className="charts">
+          <div className="charts__left">
+            <div className="charts__left__title">
+              <div>
                 <h1>Ordens de serviço</h1>
-                <h1>{orders.length}</h1>
               </div>
-              <div className="card6">
-                <h1>Máquinas</h1>
-                <h1>{machines.length}</h1>
+              <i className="fa fa-usd"></i>
+            </div>
+          </div>
+          <div className="charts__right">
+            <div className="charts__right__title">
+              <div>
+                <h1>Insumos</h1>
               </div>
-              <div className="card7">
-                <h1>Marcas</h1>
-                <h1>{manufacturers.length}</h1>
-              </div>
-              <div className="card8">
-                <h1>Modelos</h1>
-                <h1>{models.length}</h1>
-              </div>
+              <i className="fa fa-usd"></i>
             </div>
           </div>
         </div>

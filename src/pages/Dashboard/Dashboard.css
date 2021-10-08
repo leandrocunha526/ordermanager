@@ -1,41 +1,37 @@
 main {
+    background: #f3f4f6;
     grid-area: main;
     overflow-y: auto;
 }
-
-.dashboard__container {
-    padding: 10px 25px;
+.main__container {
+    padding: 20px 35px;
 }
-
-.dashboard__title{
+.main__title {
     display: flex;
     align-items: center;
 }
-
-.dashboard__title > img {
+.main__title > img {
     max-height: 100px;
     object-fit: contain;
     margin-right: 20px;
 }
-
-.dashboard__greeting > h1 {
+.main__greeting > h1 {
     font-size: 24px;
     color: #2e4a66;
-    margin-bottom: 1px;
+    margin-bottom: 5px;
 }
-
-.dashboard__greeting > p {
+.main__greeting > p {
     font-size: 14px;
     font-weight: 700;
     color: #a5aaad;
 }
-
-.dashboard__greeting > p {
-    font-size: 14px;
-    font-weight: 700;
-    color: #a5aaad;
+.main__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin: 20px 0;
 }
-.card{
+.card {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -43,7 +39,15 @@ main {
     padding: 25px;
     border-radius: 5px;
     background: #ffffff;
-    box-shadow: 5px 5px 13px #ededed, -5px 13 #ffffff;
+    box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
+}
+.card_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card_inner > span {
+    font-size: 25px;
 }
 .charts {
     display: grid;
@@ -97,7 +101,7 @@ main {
     font-size: 24px;
     color: #2e4a66;
     margin-bottom: 5px;
-  }
+}
 .charts__right__title > div > p {
     font-size: 14px;
     font-weight: 700;
@@ -151,40 +155,8 @@ main {
     border-radius: 5px;
     font-size: 14px;
 }
-.card5 {
-    background: #ff0015;
-    color: #ffffff;
-    text-align: center;
-    padding: 25px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-.card6 {
-    background: #000000;
-    color: #ffffff;
-    text-align: center;
-    padding: 25px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-.card7 {
-    background: #a19a2b;
-    color: #ffffff;
-    text-align: center;
-    padding: 25px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-.card8 {
-    background: #75585b;
-    color: #ffffff;
-    text-align: center;
-    padding: 25px;
-    border-radius: 5px;
-    font-size: 14px;
-}
 @media only screen and (max-width: 855px) {
-.dashboard__cards {
+.main__cards {
       grid-template-columns: 1fr;
       gap: 10px;
       margin-bottom: 0;
