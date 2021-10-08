@@ -17,7 +17,7 @@ const AgriculturalEdit = (props) => {
   const [providers, setProvider] = useState([]);
 
   useEffect(() => {
-    api.get(`/api/agriculturalinput/${id}`).then((result) => {
+    api.get(`/api/agriculturalinputs/${id}`).then((result) => {
       setValue("id", result.data.id);
       setValue("name", result.data.name);
       setValue("providerId", result.data.providerId);
@@ -35,7 +35,7 @@ const AgriculturalEdit = (props) => {
 
   const onSubmit = (data) => {
     api
-      .put(`/api/agriculturalinput/edit/${id}`, data)
+      .put(`/api/agriculturalinputs/edit/${id}`, data)
       .then(() => {
         props.history.push("/agriculturalinputs");
       })
@@ -71,17 +71,6 @@ const AgriculturalEdit = (props) => {
             <span>Taxa de pulverização é um campo obrigatório</span>
           )}
 
-          <label>Ano da máquina</label>
-          <input
-            type="number"
-            id="year"
-            name="year"
-            {...register("year", { required: true })}
-          />
-          {errors.year && errors.year.type === "required" && (
-            <span>Ano da máquina é um campo obrigatório</span>
-          )}
-
           <label>Quantidade</label>
           <input
             type="number"
@@ -106,9 +95,9 @@ const AgriculturalEdit = (props) => {
 
           <label>Fornecedor</label>
           <select
-            name="modelId"
-            id="modelId"
-            {...register("modelId", { required: true })}
+            name="providerId"
+            id="providerId"
+            {...register("providerId", { required: true })}
           >
             <option value="0">Selecione um modelo</option>
 

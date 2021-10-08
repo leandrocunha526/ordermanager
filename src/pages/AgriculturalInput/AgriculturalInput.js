@@ -90,7 +90,7 @@ class AgriculturalInput extends Component {
 
             <label>Quantidade</label>
             <input
-              type="date"
+              type="number"
               placeholder="Quantidade"
               value={this.state.quantity}
               onChange={(e) => this.setState({ quantity: e.target.value })}

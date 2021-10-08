@@ -12,7 +12,7 @@ class AgriculturalInput extends Component {
 
   componentDidMount() {
     api
-      .get("/agriculturalinputs/list")
+      .get("/api/agriculturalinputs/list")
       .then((res) => {
         const agriculturalinputs = res.data;
         this.setState({ agriculturalinputs });
@@ -23,7 +23,7 @@ class AgriculturalInput extends Component {
   }
   async delete(id) {
     try {
-      await api.delete(`/agriculturalinputs/${id}`);
+      await api.delete(`/api/agriculturalinputs/${id}`);
       this.setState({
         message: "Insumo excluído com sucesso",
       });
@@ -63,7 +63,7 @@ class AgriculturalInput extends Component {
                   <td>{agriculturalinput.sprayrate}</td>
                   <td>{agriculturalinput.price}</td>
                   <td>{agriculturalinput.quantity}</td>
-                  <td>{agriculturalinput.provider.corporateName}</td>
+                  <td>{agriculturalinput.providers.corporateName}</td>
                   <td>
                     <button
                       type="button"
