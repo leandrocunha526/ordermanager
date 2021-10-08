@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import hello from "../../assets/hello.svg";
 import EmployeeBarChart from "../../components/charts/EmployeeBarChart";
+import AgriculturalInputBarChart from "../../components/charts/AgriculturalInputBarChart";
 import api from "./../../services/api";
 
 const Dashboard = () => {
@@ -160,6 +161,7 @@ const Dashboard = () => {
               </div>
               <i className="fa fa-usd"></i>
             </div>
+            <AgriculturalInputBarChart />
           </div>
         </div>
       </div>
