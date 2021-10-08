@@ -37,7 +37,7 @@ const AgriculturalEdit = (props) => {
     api
       .put(`/api/agriculturalinputs/edit/${id}`, data)
       .then(() => {
-        props.history.push("/agriculturalinputs");
+        props.history.push("/agriculturalinput/list");
       })
       .catch((error) => {
         console.log(error);
