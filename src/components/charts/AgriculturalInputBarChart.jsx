@@ -17,11 +17,11 @@ const AgriculturalInputBarChart = () => {
           agriculturalinputs_quantity.push(parseInt(dataObj.quantity));
         }
         setChartData({
-          labels: agriculturalinputs_price,
+          labels: agriculturalinputs_quantity,
           datasets: [
             {
-              label: "Quantidade de insumo",
-              data: agriculturalinputs_quantity,
+              label: "Preço do insumo (R$)",
+              data: agriculturalinputs_price,
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
