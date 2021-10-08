@@ -12,6 +12,10 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import UsersTable from "./pages/User/UsersTable";
 import EditUser from "./pages/User/EditUser";
 
+import AgriculturalInput from "./pages/AgriculturalInput/AgriculturalInput";
+import AgriculturalInputEdit from "./pages/AgriculturalInput/AgriculturalInputEdit";
+import AgriculturalInputTable from "./pages/AgriculturalInput/AgriculturalInputTable";
+
 import Machine from "./pages/Machine/Machine";
 import MachineTable from "./pages/Machine/MachineTable";
 import MachineEdit from "./pages/Machine/MachineEdit";
@@ -88,6 +92,9 @@ const App = () => {
             <PrivateRoute path="/models/register" component={ModelMachine} />
             <PrivateRoute path="/models" component={ModelMachineTable} />
             <PrivateRoute path="/model/edit/:id" component={ModelMachineEdit} />
+            <PrivateRoute path="/agriculturalinput/register" component={AgriculturalInput} />
+            <PrivateRoute path="/agriculturalinput/list" component={AgriculturalInputTable} />
+            <PrivateRoute path="/agriculturalinput/edit/:id" component={AgriculturalInputEdit} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} exact path="*" />

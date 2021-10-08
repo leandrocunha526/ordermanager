@@ -49,11 +49,11 @@ const Sidebar = () => {
         </div>
         <div className="sidebar__link">
           <i className="fas fa-seedling"></i>
-          <Link to="/agriculturalinput">Cadastro de insumo</Link>
+          <Link to="/agriculturalinput/register">Cadastro de insumo</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-seedling"></i>
-          <Link to="/agriculturalinput">Insumos</Link>
+          <Link to="/agriculturalinput/list">Insumos</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-users-cog"></i>
