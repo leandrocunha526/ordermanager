@@ -10,8 +10,8 @@ class Machine extends Component {
     implement: "",
     year: "",
     acquisitionDate: "",
-    modelmachineId: "",
-    models: [],
+    modelMachineId: "",
+    modelsmachine: [],
     error: "",
     message: "",
   };
@@ -30,9 +30,9 @@ class Machine extends Component {
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const { type, implement, year, acquisitionDate, modelmachineId } =
+    const { type, implement, year, acquisitionDate, modelMachineId } =
       this.state;
-    if (!type || !implement || !year || !acquisitionDate || !modelmachineId) {
+    if (!type || !implement || !year || !acquisitionDate || !modelMachineId) {
       this.setState({
         error: "Preencha todos os campo para cadastrar uma máquina",
       });
@@ -43,7 +43,7 @@ class Machine extends Component {
           implement,
           year,
           acquisitionDate,
-          modelmachineId,
+          modelMachineId,
         });
         this.setState({
           message: "Salvo com sucesso",
@@ -101,18 +101,18 @@ class Machine extends Component {
 
             <label>Modelo</label>
             <select
-              name="modelmachineId"
-              id="modelmachineId"
-              value={this.state.modelmachineId}
+              name="modelMachineId"
+              id="modelMachineId"
+              value={this.state.modelMachineId}
               onChange={(e) =>
-                this.setState({ modelmachineId: e.target.value })
+                this.setState({ modelMachineId: e.target.value })
               }
             >
               <option value="0">Selecione um modelo</option>
 
-              {this.state.models.map((model) => (
-                <option key={model.id} value={model.id}>
-                  {model.description}
+              {this.state.modelsmachine.map((modelmachine) => (
+                <option key={modelmachine.id} value={modelmachine.id}>
+                  {modelmachine.description}
                 </option>
               ))}
             </select>
