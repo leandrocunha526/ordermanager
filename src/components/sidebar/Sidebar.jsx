@@ -21,6 +21,10 @@ const Sidebar = (props) => {
           <Link to="/dashboard">Home</Link>
         </div>
         <div className="sidebar__link">
+          <i className="fa fa-calendar"></i>
+          <Link to="/orders/register">Agendar ordem de serviço</Link>
+        </div>
+        <div className="sidebar__link">
           <i className="fa fa-industry"></i>
           <Link to="/manufacturer/register">Cadastro de marca</Link>
         </div>

@@ -13,8 +13,8 @@ const Navbar = ({ sidebarOpen, openSidebar }) => {
         <Link to="/dashboard" className="active_link">
           Admin
         </Link>
-        <Link to="/orders">Ordens de serviço</Link>
-        <Link to="/users">Usuários</Link>
+        <Link to="/orders/list">Ordens de serviço</Link>
+        <Link to="/users/list">Usuários</Link>
       </div>
       <div className="navbar__right">
         <a href="/dashboard">
