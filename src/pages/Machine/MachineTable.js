@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import api from "../../services/api";
 import { withRouter, Link } from "react-router-dom";
 import "./styles/MachineTable.css";
+import Moment from "react-moment";
 
 class UsersTable extends Component {
   state = {
     machines: [],
     message: "",
-    error: ""
+    error: "",
   };
   componentDidMount() {
     api
-      .get("/machine/list")
+      .get("/api/machines/list")
       .then((res) => {
         const machines = res.data;
         this.setState({ machines });
@@ -22,23 +23,23 @@ class UsersTable extends Component {
   }
   async delete(id) {
     try {
-      await api.delete(`/machine/${id}`);
+      await api.delete(`/api/machines/${id}`);
       this.setState({
-        message: "Máquina excluído com sucesso"
+        message: "Máquina excluída com sucesso",
       });
     } catch (err) {
       this.setState({
         error: "Ocorreu o seguinte problema ao excluir a máquina: " + err,
       });
-    };
-  };
+    }
+  }
 
   render() {
     return (
       <main>
         <div className="usertable__container">
           <div>
-            <h1>Máquinas cadastrados</h1>
+            <h1>Máquinas cadastradas</h1>
           </div>
           {this.state.message && <h3>{this.state.message}</h3>}
           {this.state.error && <h3>{this.state.error}</h3>}
@@ -47,6 +48,7 @@ class UsersTable extends Component {
               <tr>
                 <th>Id</th>
                 <th>Tipo</th>
+                <th>Data de aquisição</th>
                 <th>Modelo</th>
                 <th>Ano</th>
                 <th>Deletar</th>
@@ -58,7 +60,12 @@ class UsersTable extends Component {
                 <tr key={index}>
                   <td>{machine.id}</td>
                   <td>{machine.type}</td>
-                  <td>{machine.model}</td>
+                  <td>
+                    <Moment format="DD/MM/YYYY">
+                      {machine.acquisitionDate}
+                    </Moment>
+                  </td>
+                  <td>{machine.modelsMachine.description}</td>
                   <td>{machine.year}</td>
                   <td>
                     <button

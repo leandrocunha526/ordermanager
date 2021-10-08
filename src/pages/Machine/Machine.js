@@ -10,7 +10,7 @@ class Machine extends Component {
     implement: "",
     year: "",
     acquisitionDate: "",
-    modelId: "",
+    modelmachineId: "",
     models: [],
     error: "",
     message: "",
@@ -30,8 +30,9 @@ class Machine extends Component {
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const { type, implement, year, acquisitionDate, modelId } = this.state;
-    if (type || implement || year || acquisitionDate || modelId) {
+    const { type, implement, year, acquisitionDate, modelmachineId } =
+      this.state;
+    if (!type || !implement || !year || !acquisitionDate || !modelmachineId) {
       this.setState({
         error: "Preencha todos os campo para cadastrar uma máquina",
       });
@@ -42,7 +43,7 @@ class Machine extends Component {
           implement,
           year,
           acquisitionDate,
-          modelId,
+          modelmachineId,
         });
         this.setState({
           message: "Salvo com sucesso",
@@ -100,10 +101,12 @@ class Machine extends Component {
 
             <label>Modelo</label>
             <select
-              name="modelId"
-              id="modelId"
-              value={this.state.modelId}
-              onChange={(e) => this.setState({ modelId: e.target.value })}
+              name="modelmachineId"
+              id="modelmachineId"
+              value={this.state.modelmachineId}
+              onChange={(e) =>
+                this.setState({ modelmachineId: e.target.value })
+              }
             >
               <option value="0">Selecione um modelo</option>
 
