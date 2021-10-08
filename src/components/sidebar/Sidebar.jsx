@@ -1,8 +1,13 @@
 import React from "react";
 import "./Sidebar.css";
-import {Link} from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { logout } from "../../services/auth";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const handleLogout = (e) => {
+    logout();
+    props.history.push("/");
+  };
   return (
     <div className="sidebar-responsive" id="sidebar">
       <div className="sidebar__title">
@@ -63,8 +68,14 @@ const Sidebar = () => {
           <i className="fas fa-users-cog"></i>
           <Link to="/employee/list">Funcionários</Link>
         </div>
+        <div className="sidebar__logout">
+          <button onClick={handleLogout}>
+            <i className="fa fa-power-off"></i>
+            Sair
+          </button>
+        </div>
       </div>
     </div>
   );
 };
-export default Sidebar;
+export default withRouter(Sidebar);

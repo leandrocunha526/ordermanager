@@ -77,15 +77,19 @@
     color: #e65061;
 }
 
-.sidebar__logout>a {
+.sidebar__logout>button {
     text-decoration: none;
     color: #e65061;
-    font-weight: 700;
+    background-color: #020509;
+    font-weight: 950;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 6px 12px;
     text-transform: uppercase;
 }
 
 .sidebar__logout>i {
-    margin-right: 10px;
+    margin-right: 30px;
     font-size: 18px;
 }
 
