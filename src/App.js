@@ -36,6 +36,10 @@ import ModelMachine from "./pages/Models/ModelMachine";
 import ModelMachineTable from "./pages/Models/ModelMachineTable";
 import ModelMachineEdit from "./pages/Models/ModelMachineEdit";
 
+import Order from "./pages/Order/Order";
+import OrderTable from "./pages/Order/OrderTable";
+import OrderFormEdit from "./pages/Order/OrderFormEdit";
+
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 
@@ -75,7 +79,7 @@ const App = () => {
         <Fragment>
           <Switch>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute exact path="/users" component={UsersTable} />
+            <PrivateRoute exact path="/users/list" component={UsersTable} />
             <PrivateRoute path="/user/edit/:id" component={EditUser} />
             <PrivateRoute path="/machine/register" component={Machine} />
             <PrivateRoute path="/machine/list" component={MachineTable} />
@@ -95,6 +99,9 @@ const App = () => {
             <PrivateRoute path="/agriculturalinput/register" component={AgriculturalInput} />
             <PrivateRoute path="/agriculturalinput/list" component={AgriculturalInputTable} />
             <PrivateRoute path="/agriculturalinput/edit/:id" component={AgriculturalInputEdit} />
+            <PrivateRoute path="/orders/register" component={Order} />
+            <PrivateRoute path="/orders/list" component={OrderTable} />
+            <PrivateRoute path="/orders/edit/:id" component={OrderFormEdit} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} exact path="*" />
