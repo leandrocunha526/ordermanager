@@ -24,6 +24,7 @@ const OrderEdit = (props) => {
         setValue("employeeId", result.data.employeeId);
         setValue("agriculturalInputId", result.data.agriculturalInputId);
         setValue("modelsmachineId", result.data.modelsmachineId);
+        setValue("price", result.data.price);
       });
     });
 
@@ -95,6 +96,15 @@ const OrderEdit = (props) => {
             />
             {errors.endDate && errors.endDate.type === "required" && <span>Data final é um campo obrigatório</span>}
 
+            <label>Preço</label>
+            <input
+              type="number"
+              id="Preço"
+              name="price"
+              {...register("price", { required: true })}
+            />
+            {errors.price && errors.price.type === "required" && <span>Preço é um campo obrigatório</span>}
+        
           <label>Modelo</label>
           <select
             name="modelMachineId"

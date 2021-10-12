@@ -25,11 +25,11 @@ class OrderTable extends Component {
     try {
       await api.delete(`/api/orders/${id}`);
       this.setState({
-        message: "Ordem excluída com sucesso"
+        message: "Ordem de serviço excluída com sucesso"
       });
     } catch (err) {
       this.setState({
-        error: "Ocorreu o seguinte erro ao excluir a ordem. " + err,
+        error: "Ocorreu o seguinte erro ao excluir a ordem de serviço: " + err,
       });
     };
   };
@@ -49,8 +49,9 @@ class OrderTable extends Component {
                 <th>Id</th>
                 <th>Descrição</th>
                 <th>Local</th>
-                <th>Início</th>
-                <th>Final</th>
+                <th>Data início</th>
+                <th>Data final</th>
+                <th>Preço</th>
                 <th>Modelo</th>
                 <th>Insumo</th>
                 <th>Funcionário</th>
@@ -66,6 +67,7 @@ class OrderTable extends Component {
                   <td>{order.local}</td>
                   <td><Moment format="DD/MM/YYYY">{order.startDate}</Moment></td>
                   <td><Moment format="DD/MM/YYYY">{order.endDate}</Moment></td>
+                  <td>{order.price}</td>
                   <td>{order.modelMachine.description}</td>
                   <td>{order.agriculturalInputs.name}</td>
                   <td>{order.employees.name}</td>

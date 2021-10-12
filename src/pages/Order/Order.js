@@ -13,6 +13,7 @@ class Order extends Component {
     agriculturalinputId: "",
     modelMachineId: "",
     employeeId: "",
+    price: "",
     message: "",
     error: "",
     agriculturalinputs: [],
@@ -54,8 +55,8 @@ class Order extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const {description, local, startDate, endDate, modelMachineId, employeeId} = this.state;
-    if(!description || !local || !startDate || !endDate || !modelMachineId || !employeeId){
+    const {description, local, startDate, endDate, modelMachineId, employeeId, price} = this.state;
+    if(!description || !local || !startDate || !endDate || !modelMachineId || !employeeId || !price){
       this.setState({
         error: "Preencha todos os campo para cadastrar uma ordem de serviço",
       });
@@ -68,7 +69,8 @@ class Order extends Component {
           startDate,
           endDate,
           modelMachineId,
-          employeeId
+          employeeId,
+          price
         })
       }catch(err){
         this.setState({
@@ -117,6 +119,14 @@ class Order extends Component {
               placeholder="Data de início"
               value={this.state.endDate}
               onChange={(e) => this.setState({ endDate: e.target.value })}
+            />
+
+            <label>Preço</label>
+            <input
+              type="number"
+              placeholder="Preço"
+              value={this.state.price}
+              onChange={(e) => this.setState({ price: e.target.value })}
             />
 
             <label>Insumos</label>
