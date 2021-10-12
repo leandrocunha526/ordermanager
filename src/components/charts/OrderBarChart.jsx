@@ -5,7 +5,6 @@ import api from "../../services/api";
 const OrderBarChart = () => {
     const [chartData, setChartData]  = useState({});
 
-
     const Chart = () => {
         let order_id = [];
         let order_price = [];
@@ -13,8 +12,8 @@ const OrderBarChart = () => {
         api.get("/api/orders/list")
         .then(res => {
             for(const dataObj of res.data){
-                order_id.push(parseInt(dataObj.salary));
-                order_price.push(parseFloat(dataObj.birthday));
+                order_id.push(parseInt(dataObj.id));
+                order_price.push(parseFloat(dataObj.price));
 
             }
             setChartData({
