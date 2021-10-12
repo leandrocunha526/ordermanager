@@ -3,6 +3,8 @@ import "./Dashboard.css";
 import hello from "../../assets/hello.svg";
 import EmployeeBarChart from "../../components/charts/EmployeeBarChart";
 import AgriculturalInputBarChart from "../../components/charts/AgriculturalInputBarChart";
+import OrderBarChart from "../../components/charts/OrderBarChart";
+
 import api from "./../../services/api";
 
 const Dashboard = () => {
@@ -153,6 +155,7 @@ const Dashboard = () => {
               </div>
               <i className="fa fa-usd"></i>
             </div>
+            <OrderBarChart/>
           </div>
           <div className="charts__right">
             <div className="charts__right__title">
