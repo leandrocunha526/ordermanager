@@ -12,6 +12,7 @@ class AgriculturalInput extends Component {
     quantity: "",
     providerId: "",
     providers: [],
+    acquisitionDate: "",
     message: "",
     error: "",
   };
@@ -30,8 +31,8 @@ class AgriculturalInput extends Component {
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const { name, sprayrate, price, quantity, providerId } = this.state;
-    if (!name || !sprayrate || !price || !quantity || !providerId) {
+    const { name, sprayrate, price, quantity, providerId, acquisitionDate } = this.state;
+    if (!name || !sprayrate || !price || !quantity || !providerId || !acquisitionDate) {
       this.setState({
         error: "Preencha todos os campos para cadastrar um insumo",
       });
@@ -94,6 +95,14 @@ class AgriculturalInput extends Component {
               placeholder="Quantidade"
               value={this.state.quantity}
               onChange={(e) => this.setState({ quantity: e.target.value })}
+            />
+
+            <label>Data de aquisição</label>
+            <input
+              type="date"
+              placeholder="Data de aquisição"
+              value={this.state.acquisitionDate}
+              onChange={(e) => this.setState({ acquisitionDate: e.target.value })}
             />
 
             <label>Fornecedor</label>
