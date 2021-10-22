@@ -24,6 +24,7 @@ const AgriculturalEdit = (props) => {
       setValue("sprayrate", result.data.sprayrate);
       setValue("quantity", result.data.quantity);
       setValue("price", result.data.price);
+      setValue("acquisitionDate", result.data.acquisitionDate);
     });
   });
 
@@ -91,6 +92,17 @@ const AgriculturalEdit = (props) => {
           />
           {errors.price && errors.price.type === "required" && (
             <span>Preço é um campo obrigatório</span>
+          )}
+
+          <label>Data de aquisição</label>
+          <input
+            type="date"
+            id="acquisitionDate"
+            name="acquisitionDate"
+            {...register("acquisitionDate", { required: true })}
+          />
+          {errors.acquisitionDate && errors.acquisitionDate.type === "required" && (
+            <span>Data de aquisição é um campo obrigatório</span>
           )}
 
           <label>Fornecedor</label>

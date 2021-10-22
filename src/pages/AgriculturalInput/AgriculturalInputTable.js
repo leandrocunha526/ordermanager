@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import api from "../../services/api";
 import { withRouter, Link } from "react-router-dom";
 import "./styles/AgriculturalInputTable.css";
+import Moment from 'react-moment';
 
 class AgriculturalInputTable extends Component {
   state = {
@@ -51,6 +52,7 @@ class AgriculturalInputTable extends Component {
                 <th>Preço</th>
                 <th>Quantidade</th>
                 <th>Fornecedor</th>
+                <th>Data de aquisição</th>
                 <th>Deletar</th>
                 <th>Editar</th>
               </tr>
@@ -64,6 +66,7 @@ class AgriculturalInputTable extends Component {
                   <td>{agriculturalinput.price}</td>
                   <td>{agriculturalinput.quantity}</td>
                   <td>{agriculturalinput.providers.corporateName}</td>
+                  <td><Moment format="DD/MM/YYYY">{agriculturalinput.acquisitionDate}</Moment></td>
                   <td>
                     <button
                       type="button"
