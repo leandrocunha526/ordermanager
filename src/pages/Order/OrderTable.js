@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import "./styles/OrderTable.css";
 import Moment from "react-moment";
 import jsPDF from "jspdf";
-import autoTable from 'jspdf-autotable'
+import autoTable from 'jspdf-autotable';
 
 class OrderTable extends Component {
   state = {
@@ -73,6 +73,7 @@ class OrderTable extends Component {
                 <th>Funcionário</th>
                 <th>Deletar</th>
                 <th>Editar</th>
+                <th>Detalhe</th>
               </tr>
             </thead>
             <tbody>
@@ -102,6 +103,14 @@ class OrderTable extends Component {
                       className="button__primary"
                     >
                       Editar
+                    </Link>
+                  </td>
+                  <td>
+                    <Link
+                      to={"/orders/detail/" + order.id}
+                      className="button__info"
+                    >
+                      Detalhe
                     </Link>
                   </td>
                 </tr>

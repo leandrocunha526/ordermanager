@@ -39,6 +39,7 @@ import ModelMachineEdit from "./pages/Models/ModelMachineEdit";
 import Order from "./pages/Order/Order";
 import OrderTable from "./pages/Order/OrderTable";
 import OrderFormEdit from "./pages/Order/OrderFormEdit";
+import OrderDetail from "./pages/Order/OrderDetail";
 
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -102,6 +103,7 @@ const App = () => {
             <PrivateRoute path="/orders/register" component={Order} />
             <PrivateRoute path="/orders/list" component={OrderTable} />
             <PrivateRoute path="/orders/edit/:id" component={OrderFormEdit} />
+            <PrivateRoute path="/orders/detail/:id" component={OrderDetail} />
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route component={NotFound} exact path="*" />
