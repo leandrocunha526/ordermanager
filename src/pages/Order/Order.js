@@ -10,14 +10,14 @@ class Order extends Component {
     local: "",
     startDate: "",
     endDate: "",
-    agriculturalinputId: "",
-    modelMachineId: "",
+    agriculturalInputId: "",
+    machineId: "",
     employeeId: "",
     price: "",
     message: "",
     error: "",
     agriculturalinputs: [],
-    modelsmachine: [],
+    machines: [],
     employees: []
   }
 
@@ -33,10 +33,10 @@ class Order extends Component {
       });
 
       api
-      .get("api/modelsmachine/list")
+      .get("api/machines/list")
       .then((res) => {
-        const modelsmachine = res.data;
-        this.setState({ modelsmachine });
+        const machines = res.data;
+        this.setState({ machines });
       })
       .catch((error) => {
         console.log(error);
@@ -55,23 +55,27 @@ class Order extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const {description, local, startDate, endDate, modelMachineId, employeeId, price} = this.state;
-    if(!description || !local || !startDate || !endDate || !modelMachineId || !employeeId || !price){
+    const {description, local, startDate, endDate, machineId, employeeId, price, agriculturalInputId} = this.state;
+    if(!description || !local || !startDate || !endDate || !machineId || !employeeId || !price || !agriculturalInputId){
       this.setState({
         error: "Preencha todos os campo para cadastrar uma ordem de serviço",
       });
     }
     else {
       try {
-        await api.post("", {
+        await api.post("/api/orders/register", {
           description,
           local,
           startDate,
           endDate,
-          modelMachineId,
+          machineId,
           employeeId,
-          price
-        })
+          price,
+          agriculturalInputId
+        });
+        this.setState({
+          message: "Salvo com sucesso"
+        });
       }catch(err){
         this.setState({
           error: "Ocorreu o seguinte problema com o cadastro: " + err,
@@ -90,7 +94,7 @@ class Order extends Component {
             {this.state.error && <p>{this.state.error}</p>}
 
             <label>Descrição</label>
-            <input
+            <textarea
               type="text"
               placeholder="Descrição"
               value={this.state.description}
@@ -131,10 +135,10 @@ class Order extends Component {
 
             <label>Insumos</label>
             <select
-              name="agriculturalinputId"
-              id="agriculturalinputId"
-              value={this.state.agriculturalinputId}
-              onChange={(e) => this.setState({ agriculturalinputId: e.target.value })}
+              name="agriculturalInputId"
+              id="agriculturalInputId"
+              value={this.state.agriculturalInputId}
+              onChange={(e) => this.setState({ agriculturalInputId: e.target.value })}
             >
               <option value="0">Selecione um insumo</option>
 
@@ -145,18 +149,18 @@ class Order extends Component {
               ))}
             </select>
 
-            <label>Modelo</label>
+            <label>Máquina</label>
             <select
-              name="modelMachineId"
-              id="modelMachineId"
-              value={this.state.modelMachineId}
-              onChange={(e) => this.setState({ modelMachineId: e.target.value })}
+              name="machineId"
+              id="machineId"
+              value={this.state.machineId}
+              onChange={(e) => this.setState({ machineId: e.target.value })}
             >
               <option value="0">Selecione um modelo</option>
 
-              {this.state.modelsmachine.map((modelmachine) => (
-                <option key={modelmachine.id} value={modelmachine.id}>
-                  {modelmachine.description}
+              {this.state.machines.map((machine) => (
+                <option key={machine.id} value={machine.id}>
+                  {machine.type}
                 </option>
               ))}
             </select>

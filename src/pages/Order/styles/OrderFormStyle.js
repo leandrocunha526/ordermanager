@@ -39,6 +39,24 @@ export const Form = styled.form`
       color: #999;
     }
   }
+  textarea {
+    flex: 1;
+    height: 20px;
+    margin-bottom: 10px;
+    padding: 0.5em;
+    color: #777;
+    border: 1px solid #777;
+    border-radius: 4px;
+    &:focus {
+      outline: none;
+      border-color: #3ea175;
+    }
+    font-size: 20px;
+    width: 100%;
+    &::placeholder {
+      color: #999;
+    }
+  }
   button {
     color: #ffffff;
     font-size: 1em;

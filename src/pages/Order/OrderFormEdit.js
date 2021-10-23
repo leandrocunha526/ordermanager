@@ -11,7 +11,7 @@ const OrderEdit = (props) => {
     const {register, handleSubmit, setValue, formState: { errors }} = useForm({});
 
     const [employees, setEmployee] = useState([]);
-    const [modelsmachine, setModelMachine] = useState([]);
+    const [machine, setMachine] = useState([]);
     const [agriculturalinputs, setAgriculturalInput] = useState([]);
 
     useEffect(() => {
@@ -23,13 +23,13 @@ const OrderEdit = (props) => {
         setValue("endDate", result.data.endDate);
         setValue("employeeId", result.data.employeeId);
         setValue("agriculturalInputId", result.data.agriculturalInputId);
-        setValue("modelsmachineId", result.data.modelsmachineId);
+        setValue("machineId", result.data.machineId);
         setValue("price", result.data.price);
       });
     });
 
     useEffect(() => {
-        api.get("/api/employee/list").then(({ data }) => {
+        api.get("/api/employees/list").then(({ data }) => {
             setEmployee(data);
         });
       }, []);
@@ -41,8 +41,8 @@ const OrderEdit = (props) => {
       }, []);
 
     useEffect(() => {
-        api.get("/api/modelsmachine/list").then(({ data }) => {
-            setModelMachine(data);
+        api.get("/api/machines/list").then(({ data }) => {
+            setMachine(data);
         });
       }, []);
 
@@ -61,7 +61,7 @@ const OrderEdit = (props) => {
           <Form  onSubmit={handleSubmit(onSubmit)}>
             <h1>Editar ordem de serviço</h1>
             <label>Nome da marca</label>
-            <input
+            <textarea
               type="text"
               id="description"
               name="description"
@@ -104,18 +104,18 @@ const OrderEdit = (props) => {
               {...register("price", { required: true })}
             />
             {errors.price && errors.price.type === "required" && <span>Preço é um campo obrigatório</span>}
-        
-          <label>Modelo</label>
+
+          <label>Máquina</label>
           <select
-            name="modelMachineId"
-            id="modelMachineId"
-            {...register("modelMachineId", { required: true })}
+            name="machineId"
+            id="machineId"
+            {...register("machineId", { required: true })}
           >
             <option value="0">Selecione um modelo</option>
 
-            {modelsmachine.map((modelmachine) => (
-              <option key={modelmachine.id} value={modelmachine.id}>
-                {modelmachine.description}
+            {machine.map((machine) => (
+              <option key={machine.id} value={machine.id}>
+                {machine.type}
               </option>
             ))}
           </select>
@@ -130,7 +130,7 @@ const OrderEdit = (props) => {
 
             {employees.map((employee) => (
               <option key={employee.id} value={employee.id}>
-                {employee.description}
+                {employee.name}
               </option>
             ))}
           </select>
@@ -145,7 +145,7 @@ const OrderEdit = (props) => {
 
             {agriculturalinputs.map((agriculturalinput) => (
               <option key={agriculturalinput.id} value={agriculturalinput.id}>
-                {agriculturalinput.description}
+                {agriculturalinput.name}
               </option>
             ))}
           </select>

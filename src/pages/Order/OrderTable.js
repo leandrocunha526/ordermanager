@@ -3,6 +3,8 @@ import api from "../../services/api";
 import { withRouter, Link } from "react-router-dom";
 import "./styles/OrderTable.css";
 import Moment from "react-moment";
+import jsPDF from "jspdf";
+import autoTable from 'jspdf-autotable'
 
 class OrderTable extends Component {
   state = {
@@ -12,7 +14,7 @@ class OrderTable extends Component {
   };
   componentDidMount() {
     api
-      .get("api/orders/list")
+      .get("/api/orders/list")
       .then((res) => {
         const orders = res.data;
         this.setState({ orders });
@@ -34,6 +36,12 @@ class OrderTable extends Component {
     };
   };
 
+  exportar = () => {
+    const doc = new jsPDF('p', 'pt');
+    autoTable(doc, { html: '#table-order' });
+    doc.save("table.pdf");
+  }
+
   render() {
     return (
       <main>
@@ -43,7 +51,15 @@ class OrderTable extends Component {
           </div>
           {this.state.message && <h3>{this.state.message}</h3>}
           {this.state.error && <h3>{this.state.error}</h3>}
-          <table>
+
+          <button
+           type="button"
+           className="button__secundary"
+           onClick={() => this.exportar()}>
+            Exportar dados
+          </button>
+
+          <table id="table-order">
             <thead>
               <tr>
                 <th>Id</th>
@@ -68,7 +84,7 @@ class OrderTable extends Component {
                   <td><Moment format="DD/MM/YYYY">{order.startDate}</Moment></td>
                   <td><Moment format="DD/MM/YYYY">{order.endDate}</Moment></td>
                   <td>{order.price}</td>
-                  <td>{order.modelMachine.description}</td>
+                  <td>{order.machines.type}</td>
                   <td>{order.agriculturalInputs.name}</td>
                   <td>{order.employees.name}</td>
                   <td>
