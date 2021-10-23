@@ -56,7 +56,7 @@ class Order extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const {description, local, startDate, endDate, machineId, employeeId, price, agriculturalInputId} = this.state;
-    if(!description || !local || !startDate || !endDate || !machineId || !employeeId || !price || !agriculturalInputId){
+    if(!description || !local || !startDate || !endDate || !machineId || !employeeId || !price|| !agriculturalInputId){
       this.setState({
         error: "Preencha todos os campo para cadastrar uma ordem de serviço",
       });
@@ -140,7 +140,7 @@ class Order extends Component {
               value={this.state.agriculturalInputId}
               onChange={(e) => this.setState({ agriculturalInputId: e.target.value })}
             >
-              <option value="0">Selecione um insumo</option>
+	      <option value="0">Selecione um insumo</option>
 
               {this.state.agriculturalinputs.map((agriculturalinput) => (
                 <option key={agriculturalinput.id} value={agriculturalinput.id}>
@@ -149,14 +149,14 @@ class Order extends Component {
               ))}
             </select>
 
-            <label>Máquina</label>
+            <label>Tipo de máquina</label>
             <select
               name="machineId"
               id="machineId"
               value={this.state.machineId}
               onChange={(e) => this.setState({ machineId: e.target.value })}
             >
-              <option value="0">Selecione um modelo</option>
+              <option value="0">Selecione uma máquina</option>
 
               {this.state.machines.map((machine) => (
                 <option key={machine.id} value={machine.id}>
