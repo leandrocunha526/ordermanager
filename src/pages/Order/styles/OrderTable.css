@@ -40,6 +40,17 @@ main {
 	color: #FFFFFF;
 }
 
+.button__info {
+    border: solid 1px;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
+    background: #138496;
+    border-color: #138496;
+    color: #FFFFFF;
+}
+
 table {
     border-collapse: collapse;
     page-break-inside: auto;

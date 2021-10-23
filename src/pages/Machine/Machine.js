@@ -20,8 +20,8 @@ class Machine extends Component {
     api
       .get("api/modelsmachine/list")
       .then((res) => {
-        const models = res.data;
-        this.setState({ models });
+        const modelsmachine = res.data;
+        this.setState({ modelsmachine });
       })
       .catch((error) => {
         console.log(error);
