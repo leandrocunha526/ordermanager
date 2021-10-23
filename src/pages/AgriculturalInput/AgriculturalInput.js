@@ -44,6 +44,7 @@ class AgriculturalInput extends Component {
           price,
           quantity,
           providerId,
+          acquisitionDate
         });
         this.setState({
           message: "Salvo com sucesso",
