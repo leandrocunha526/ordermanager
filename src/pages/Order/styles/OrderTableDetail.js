@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 88vh;
+  height: 85vh;
 `;
 
 export const Table = styled.form`
@@ -16,7 +16,7 @@ export const Table = styled.form`
   align-items: center;
   table {
     border-spacing: 0;
-    width: 20%;
+    width: 50%;
     height: 20%;
     border: 0.1px black;
   }
