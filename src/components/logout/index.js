@@ -5,7 +5,7 @@ import "./style.css";
 
 const Logout = (props) => {
 
-    const handleLogout = (e) => {
+    const handleLogout = () => {
     logout();
     props.history.push("/");
     };

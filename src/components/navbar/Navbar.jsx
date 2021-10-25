@@ -19,9 +19,6 @@ const Navbar = ({ sidebarOpen, openSidebar }) => {
       </div>
       <div className="navbar__right">
         <a href="/dashboard">
-          <i className="fa fa-search"></i>
-        </a>
-        <a href="/dashboard">
           <img width="30" src={avatar} alt="avatar" />
         </a>
         <Logout/>
