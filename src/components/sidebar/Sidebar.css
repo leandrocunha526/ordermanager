@@ -71,28 +71,6 @@
     font-size: 18px;
 }
 
-.sidebar__logout {
-    margin-top: 20px;
-    padding: 10px;
-    color: #e65061;
-}
-
-.sidebar__logout>button {
-    text-decoration: none;
-    color: #e65061;
-    background-color: #020509;
-    font-weight: 950;
-    border-radius: 5px;
-    font-weight: bold;
-    padding: 6px 12px;
-    text-transform: uppercase;
-}
-
-.sidebar__logout>i {
-    margin-right: 30px;
-    font-size: 18px;
-}
-
 .sidebar__responsive {
     display: inline !important;
     z-index: 9999 !important;
