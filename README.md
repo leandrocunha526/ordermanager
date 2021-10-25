@@ -10,6 +10,30 @@
 
 To help manage warehouse, culminate business intelligence, statistics, data warehouse to assist in decision making within the company with agricultural inputs, suppliers, work orders with registration and scheduling, machines, brands and models.
 
+- Login screen
+
+- Dashboard admin
+
+- Entities Manager
+
+- Screen responsive (Ipad and computers)
+
+- Charts
+
+- Tables
+
+- Jest DOM
+
+- CRUD
+
+- REST
+
+- Moment to dates format
+
+- Navbar
+
+- Sidebar
+
 ## Requirements
 
 - Nodejs (12.x, 14.x, 16.x and 17.x in test)
