@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import avatar from "../../assets/avatar.svg";
 import {Link} from "react-router-dom";
+import Logout from "../../components/logout"
 
 const Navbar = ({ sidebarOpen, openSidebar }) => {
   return (
@@ -23,6 +24,7 @@ const Navbar = ({ sidebarOpen, openSidebar }) => {
         <a href="/dashboard">
           <img width="30" src={avatar} alt="avatar" />
         </a>
+        <Logout/>
       </div>
     </nav>
   );
