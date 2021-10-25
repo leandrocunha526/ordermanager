@@ -1,19 +1,19 @@
 import React from "react";
 import "./Sidebar.css";
 import { Link, withRouter } from "react-router-dom";
-import { logout } from "../../services/auth";
 
-const Sidebar = (props) => {
-  const handleLogout = (e) => {
-    logout();
-    props.history.push("/");
-  };
+const Sidebar = ({sidebarOpen, closeSidebar}) => {
   return (
-    <div className="sidebar-responsive" id="sidebar">
+    <div className={sidebarOpen ? "sidebar__responsive" : ""} id="sidebar">
       <div className="sidebar__title">
         <div className="sidebar__img">
           <h1>Order manager</h1>
         </div>
+        <i
+          className="fa fa-times"
+          id="sidebarIcon"
+          onClick={() => closeSidebar()}
+        ></i>
       </div>
       <div className="sidebar__menu">
         <div className="sidebar__link active_menu_link">
@@ -71,12 +71,6 @@ const Sidebar = (props) => {
         <div className="sidebar__link">
           <i className="fas fa-users-cog"></i>
           <Link to="/employee/list">Funcionários</Link>
-        </div>
-        <div className="sidebar__logout">
-          <button onClick={handleLogout}>
-            <i className="fa fa-power-off"></i>
-            Sair
-          </button>
         </div>
       </div>
     </div>
