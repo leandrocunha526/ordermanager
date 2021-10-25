@@ -12,8 +12,8 @@ To help manage warehouse, culminate business intelligence, statistics, data ware
 
 ## Requirements
 
-- Nodejs (12, 14 and 16 tested)
-- NPM (6.x or 7.x)
+- Nodejs (12.x, 14.x, 16.x and 17.x in test)
+- NPM (6.x, 7.x and 8.x)
 
 ## Install dependencies
 

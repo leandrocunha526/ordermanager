@@ -30,7 +30,7 @@ class AgriculturalInputTable extends Component {
       });
     } catch (err) {
       this.setState({
-        error: "Ocorreu o seguinte problema ao excluir a máquina: " + err,
+        error: "Ocorreu o seguinte problema ao excluir o insumo: " + err,
       });
     }
   }
