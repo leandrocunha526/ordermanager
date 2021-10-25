@@ -1,0 +1,20 @@
+.navbar__logout {
+    padding: 5px;
+    color: #ffffff;
+}
+
+.navbar__logout>button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #3ea175;
+    font-weight: 950;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 2px 5px;
+    text-transform: uppercase;
+}
+
+.navbar__logout>i {
+    margin-right: 5px;
+    font-size: 10px;
+}
