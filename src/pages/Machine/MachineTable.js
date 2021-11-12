@@ -47,6 +47,8 @@ class MachineTable extends Component {
             <thead>
               <tr>
                 <th>Id</th>
+                <th>Código de registro</th>
+                <th>Número de serial</th>
                 <th>Tipo</th>
                 <th>Data de aquisição</th>
                 <th>Modelo</th>
@@ -59,6 +61,8 @@ class MachineTable extends Component {
               {this.state.machines.map((machine, index) => (
                 <tr key={index}>
                   <td>{machine.id}</td>
+                  <td>{machine.registerCode}</td>
+                  <td>{machine.serialNumber}</td>
                   <td>{machine.type}</td>
                   <td>
                     <Moment format="DD/MM/YYYY">

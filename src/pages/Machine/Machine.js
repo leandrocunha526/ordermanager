@@ -6,6 +6,8 @@ import { Form, Container } from "./styles/MachineFormStyle";
 
 class Machine extends Component {
   state = {
+    serialNumber: "",
+    registerCode: "",
     type: "",
     implement: "",
     year: "",
@@ -30,15 +32,17 @@ class Machine extends Component {
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const { type, implement, year, acquisitionDate, modelMachineId } =
+    const { registerCode, serialNumber, type, implement, year, acquisitionDate, modelMachineId } =
       this.state;
-    if (!type || !implement || !year || !acquisitionDate || !modelMachineId) {
+    if (!registerCode || !serialNumber || !type || !implement || !year || !acquisitionDate || !modelMachineId) {
       this.setState({
         error: "Preencha todos os campo para cadastrar uma máquina",
       });
     } else {
       try {
         await api.post("/api/machines/register", {
+          registerCode,
+          serialNumber,
           type,
           implement,
           year,
@@ -64,6 +68,22 @@ class Machine extends Component {
             <Title title="Cadastro de máquina" />
             {this.state.message && <p>{this.state.message}</p>}
             {this.state.error && <p>{this.state.error}</p>}
+
+            <label>Código de registro (Id Agro)</label>
+            <input
+              type="text"
+              placeholder="Código de registro (Id Agro)"
+              value={this.state.registerCode}
+              onChange={(e) => this.setState({ registerCode: e.target.value })}
+            />
+
+            <label>Número de serial (chassi)</label>
+            <input
+              type="text"
+              placeholder="Número de serial (chassi)"
+              value={this.state.serialNumber}
+              onChange={(e) => this.setState({ serialNumber: e.target.value })}
+            />
 
             <label>Tipo de máquina</label>
             <input

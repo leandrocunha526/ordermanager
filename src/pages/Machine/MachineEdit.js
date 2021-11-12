@@ -19,6 +19,8 @@ const MachineEdit = (props) => {
   useEffect(() => {
     api.get(`/api/machines/${id}`).then((result) => {
       setValue("id", result.data.id);
+      setValue("registerCode", result.data.registerCode);
+      setValue("serialNumber", result.data.serialNumber);
       setValue("type", result.data.type);
       setValue("modelMachineId", result.data.modelMachineId);
       setValue("implement", result.data.implement);
@@ -35,9 +37,9 @@ const MachineEdit = (props) => {
 
   const onSubmit = (data) => {
     api
-      .put(`/api/modelsmachine/edit/${id}`, data)
+      .put(`/api/machines/edit/${id}`, data)
       .then(() => {
-        props.history.push("/models");
+        props.history.push("/machine/list");
       })
       .catch((error) => {
         console.log(error);
@@ -49,6 +51,29 @@ const MachineEdit = (props) => {
       <Container>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <h1>Editar modelo</h1>
+
+          <label>Código de registro (Id Agro)</label>
+          <input
+            type="text"
+            id="registerCode"
+            name="registerCode"
+            {...register("registerCode", { required: true })}
+          />
+          {errors.registerCode && errors.registerCode.type === "required" && (
+            <span>Código de registro é um campo obrigatório</span>
+          )}
+
+          <label>Número de serial (chassi)</label>
+          <input
+            type="text"
+            id="serialNumber"
+            name="serialNumber"
+            {...register("serialNumber", { required: true })}
+          />
+          {errors.serialNumber && errors.serialNumber.type === "required" && (
+            <span>Número de serial é um campo obrigatório</span>
+          )}
+
           <label>Tipo da máquina</label>
           <input
             type="text"
