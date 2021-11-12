@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 140vh;
+  height: 130vh;
 `;
 
 export const Form = styled.form`

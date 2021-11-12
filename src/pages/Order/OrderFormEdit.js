@@ -111,11 +111,11 @@ const OrderEdit = (props) => {
             id="machineId"
             {...register("machineId", { required: true })}
           >
-            <option value="0">Selecione um modelo</option>
+            <option value="0">Selecione uma máquina</option>
 
             {machine.map((machine) => (
               <option key={machine.id} value={machine.id}>
-                {machine.type}
+                {machine.registerCode}
               </option>
             ))}
           </select>

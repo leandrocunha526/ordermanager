@@ -149,7 +149,7 @@ class Order extends Component {
               ))}
             </select>
 
-            <label>Tipo de máquina</label>
+            <label>Código da máquina</label>
             <select
               name="machineId"
               id="machineId"
@@ -160,7 +160,7 @@ class Order extends Component {
 
               {this.state.machines.map((machine) => (
                 <option key={machine.id} value={machine.id}>
-                  {machine.type}
+                  {machine.registerCode}
                 </option>
               ))}
             </select>
