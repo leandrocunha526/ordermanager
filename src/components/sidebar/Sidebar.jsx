@@ -16,21 +16,20 @@ const Sidebar = ({sidebarOpen, closeSidebar}) => {
         ></i>
       </div>
       <div className="sidebar__menu">
+      <h2>Dashboard</h2>
         <div className="sidebar__link active_menu_link">
           <i className="fa fa-home"></i>
           <Link to="/dashboard">Home</Link>
         </div>
+        <h2>Agendamentos</h2>
         <div className="sidebar__link">
           <i className="fa fa-calendar"></i>
           <Link to="/orders/register">Agendar ordem de serviço</Link>
         </div>
+        <h2>Cadastros</h2>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
           <Link to="/manufacturer/register">Cadastro de marca</Link>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-industry"></i>
-          <Link to="/manufacturer/list">Marcas</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
@@ -38,11 +37,28 @@ const Sidebar = ({sidebarOpen, closeSidebar}) => {
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <Link to="/models">Modelos</Link>
+          <Link to="/machine/register">Cadastro de máquina</Link>
+        </div>
+        <div className="sidebar__link">
+          <i className="fa fa-industry"></i>
+          <Link to="/provider/register">Cadastro de fornecedor</Link>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-seedling"></i>
+          <Link to="/agriculturalinput/register">Cadastro de insumo</Link>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-users-cog"></i>
+          <Link to="/employee/register">Cadastro de funcionário</Link>
+        </div>
+        <h2>Listagens</h2>
+        <div className="sidebar__link">
+          <i className="fa fa-industry"></i>
+          <Link to="/manufacturer/list">Marcas</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
-          <Link to="/machine/register">Cadastro de máquina</Link>
+          <Link to="/models">Modelos</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-tractor"></i>
@@ -50,23 +66,11 @@ const Sidebar = ({sidebarOpen, closeSidebar}) => {
         </div>
         <div className="sidebar__link">
           <i className="fa fa-industry"></i>
-          <Link to="/provider/register">Cadastro de fornecedor</Link>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-industry"></i>
           <Link to="/provider/list">Fornecedores</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-seedling"></i>
-          <Link to="/agriculturalinput/register">Cadastro de insumo</Link>
-        </div>
-        <div className="sidebar__link">
-          <i className="fas fa-seedling"></i>
           <Link to="/agriculturalinput/list">Insumos</Link>
-        </div>
-        <div className="sidebar__link">
-          <i className="fas fa-users-cog"></i>
-          <Link to="/employee/register">Cadastro de funcionário</Link>
         </div>
         <div className="sidebar__link">
           <i className="fas fa-users-cog"></i>
