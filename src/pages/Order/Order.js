@@ -149,7 +149,7 @@ class Order extends Component {
               ))}
             </select>
 
-            <label>Código da máquina</label>
+            <label>Código de registro da máquina no IdAgro</label>
             <select
               name="machineId"
               id="machineId"

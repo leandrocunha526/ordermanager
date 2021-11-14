@@ -102,7 +102,7 @@ class OrderDetail extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td>Código da máquina:</td>
+                  <td>Código de registro da máquina no IdAgro:</td>
                   <td>
                     <label>{this.state.order.machines.registerCode}</label>
                   </td>

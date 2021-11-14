@@ -105,7 +105,7 @@ const OrderEdit = (props) => {
             />
             {errors.price && errors.price.type === "required" && <span>Preço é um campo obrigatório</span>}
 
-          <label>Máquina</label>
+          <label>Código de registro da máquina no IdAgro</label>
           <select
             name="machineId"
             id="machineId"
