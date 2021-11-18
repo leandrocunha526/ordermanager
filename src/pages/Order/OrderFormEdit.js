@@ -18,6 +18,7 @@ const OrderEdit = (props) => {
       api.get(`/api/orders/${id}`).then((result) => {
         setValue("id", result.data.id);
         setValue("description", result.data.description);
+        setValue("status", result.data.status);
         setValue("local", result.data.local);
         setValue("startDate", result.data.startDate);
         setValue("endDate", result.data.endDate);
@@ -54,13 +55,12 @@ const OrderEdit = (props) => {
       })
     }
 
-
     return (
       <main>
         <Container>
           <Form  onSubmit={handleSubmit(onSubmit)}>
             <h1>Editar ordem de serviço</h1>
-            <label>Nome da marca</label>
+            <label>Descrição</label>
             <textarea
               type="text"
               id="description"
@@ -68,6 +68,18 @@ const OrderEdit = (props) => {
               {...register("description", { required: true })}
             />
              {errors.description && errors.description.type === "required" && <span>Descrição é um campo obrigatório</span>}
+
+          <label>Estado</label>
+          <select
+            name="status"
+            id="status"
+            {...register("status", { required: true })}
+          >
+            <option value="0">Selecione o estado</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Resolvido">Resolvido</option>
+          </select>
 
             <label>Local</label>
             <input

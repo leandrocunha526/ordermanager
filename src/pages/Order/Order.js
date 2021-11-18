@@ -8,6 +8,7 @@ class Order extends Component {
   state = {
     description: "",
     local: "",
+    status: "",
     startDate: "",
     endDate: "",
     agriculturalInputId: "",
@@ -55,8 +56,8 @@ class Order extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const {description, local, startDate, endDate, machineId, employeeId, price, agriculturalInputId} = this.state;
-    if(!description || !local || !startDate || !endDate || !machineId || !employeeId || !price|| !agriculturalInputId){
+    const {description, status, local, startDate, endDate, machineId, employeeId, price, agriculturalInputId} = this.state;
+    if(!description || !status || !local || !startDate || !endDate || !machineId || !employeeId || !price|| !agriculturalInputId){
       this.setState({
         error: "Preencha todos os campo para cadastrar uma ordem de serviço",
       });
@@ -65,6 +66,7 @@ class Order extends Component {
       try {
         await api.post("/api/orders/register", {
           description,
+          status,
           local,
           startDate,
           endDate,
@@ -100,6 +102,18 @@ class Order extends Component {
               value={this.state.description}
               onChange={(e) => this.setState({ description: e.target.value })}
             />
+
+            <label>Estado</label>
+            <select
+            name="status"
+            id="status"
+            value={this.state.status}
+            onChange={(e) => this.setState({ status: e.target.value })}>
+            <option value="0">Selecione o estado</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Resolvido">Resolvido</option>
+            </select>
 
             <label>Local</label>
             <input

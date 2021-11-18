@@ -71,6 +71,7 @@ class OrderTable extends Component {
                 <th>Máquina</th>
                 <th>Insumo</th>
                 <th>Funcionário</th>
+                <th>Estado</th>
                 <th>Deletar</th>
                 <th>Editar</th>
                 <th>Detalhe</th>
@@ -88,6 +89,7 @@ class OrderTable extends Component {
                   <td>{order.machines.registerCode}</td>
                   <td>{order.agriculturalInputs.name}</td>
                   <td>{order.employees.name}</td>
+                  <td>{order.status}</td>
                   <td>
                     <button
                       type="button"

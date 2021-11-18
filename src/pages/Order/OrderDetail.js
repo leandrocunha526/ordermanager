@@ -119,6 +119,12 @@ class OrderDetail extends Component {
                     <label>{this.state.order.agriculturalInputs.name}</label>
                   </td>
                 </tr>
+                <tr>
+                  <td>Estado:</td>
+                  <td>
+                    <label>{this.state.order.status}</label>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </Table>
