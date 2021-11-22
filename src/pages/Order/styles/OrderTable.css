@@ -7,37 +7,37 @@ main {
     padding: 10px 25px;
 }
 
-.button__warning{
+.button__warning {
     border: solid 1px;
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
     padding: 6px 12px;
     background: #f44336;
-	border-color: #f44336;
-	color: #ffffff;
+    border-color: #f44336;
+    color: #ffffff;
 }
 
-.button__primary{
+.button__primary {
     border: solid 1px;
     border-radius: 5px;
     font-weight: bold;
     padding: 6px 12px;
     text-decoration: none;
     background: #fff100;
-	border-color: #fff100;
-	color: #000000;
+    border-color: #fff100;
+    color: #000000;
 }
 
-.button__secundary{
+.button__secundary {
     border: solid 1px;
     border-radius: 5px;
     font-weight: bold;
     padding: 6px 12px;
     text-decoration: none;
-    background: #6C757D;
-	border-color: #6C757D;
-	color: #FFFFFF;
+    background: #6c757d;
+    border-color: #6c757d;
+    color: #ffffff;
 }
 
 .button__info {
@@ -48,7 +48,7 @@ main {
     text-decoration: none;
     background: #138496;
     border-color: #138496;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 table {
