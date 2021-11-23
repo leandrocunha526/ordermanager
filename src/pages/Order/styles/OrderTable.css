@@ -71,3 +71,17 @@ tbody td {
 tbody tr:hover {
     background-color: #eee;
 }
+
+input {
+    flex: 1;
+    height: 25px;
+    margin-bottom: 5px;
+    color: #777;
+    border: 1px solid #777;
+    border-radius: 4px;
+    border-color: #3ea175;
+}
+
+.message {
+    color: red;
+}

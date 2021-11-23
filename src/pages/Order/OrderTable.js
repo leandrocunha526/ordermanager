@@ -6,29 +6,42 @@ import Moment from "react-moment";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
-const OrderTable = (props) => {
+const OrderTable = () => {
     const [orders, setOrders] = useState([]);
+    const [initialOrder, setInitialOrders] = useState([]);
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
-        api.get("/api/orders/list")
-            .then((res) => {
-                const orders = res.data;
-                setOrders(orders);
-                return orders;
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+            api
+                .get("/api/orders/list")
+                .then((res) => {
+                    const orders = res.data;
+                    setOrders(orders);
+                    setInitialOrders(orders);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
     }, []);
+
+    const handleChange = ({ target }) => {
+        if (!target.value) {
+            setOrders(initialOrder);
+            return;
+        }
+        const filterOrder = orders.filter(({ startDate }) =>
+            startDate.includes(target.value)
+        );
+        setOrders(filterOrder);
+    };
 
     async function deleteOrder(id) {
         try {
             await api.delete(`/api/orders/${id}`);
-            props.history.push("/dashboard");
+            setMessage("Ordem de serviço excluída com sucesso");
         } catch (err) {
             console.log(err);
         }
-        deleteOrder(id);
     }
 
     function exportar() {
@@ -41,9 +54,18 @@ const OrderTable = (props) => {
         <main>
             <div className="usertable__container">
                 <div>
-                    <h1>Ordem de serviço agendadas</h1>
+                <h1>Ordem de serviço agendadas</h1>
                 </div>
 
+                <div class="message">{message}</div>
+
+                <label>Pesquisar data de início: </label>
+                <input
+                    type="date"
+                    onChange={handleChange}
+                />
+
+                <div>
                 <button
                     type="button"
                     className="button__secundary"
@@ -51,6 +73,7 @@ const OrderTable = (props) => {
                 >
                     Exportar dados
                 </button>
+                </div>
 
                 <table id="table-order">
                     <thead>
