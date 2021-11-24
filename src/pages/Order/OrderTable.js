@@ -58,7 +58,7 @@ const OrderTable = () => {
                 <h1>Ordem de serviço agendadas</h1>
                 </div>
 
-                <div class="message">{message}</div>
+                <div className="message">{message}</div>
 
                 <label>Pesquisar data de início: </label>
                 <input
