@@ -84,9 +84,8 @@ tbody tr:hover {
 }
 
 input {
-    flex: 1;
     height: 25px;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     color: #777;
     border: 1px solid #777;
     border-radius: 4px;
@@ -95,4 +94,11 @@ input {
 
 .message {
     color: red;
+}
+
+.reports {
+    padding-left: 63%;
+    position:fixed;
+    top: 2;
+    right: 10px;
 }

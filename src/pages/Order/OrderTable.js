@@ -55,6 +55,21 @@ const OrderTable = () => {
         <main>
             <div className="usertable__container">
                 <div>
+
+                <div className="reports">
+                <button
+                    type="button"
+                    className="button__secundary"
+                    onClick={() => exportar()}
+                > Exportar dados para PDF
+                </button>
+                <button className="button__green">
+                <CSVLink data={orders}>
+                 Exportar dados para CSV
+                 </CSVLink>
+                </button>
+                </div>
+
                 <h1>Ordem de serviço agendadas</h1>
                 </div>
 
@@ -65,20 +80,6 @@ const OrderTable = () => {
                     type="date"
                     onChange={handleChange}
                 />
-
-                <div>
-                <button
-                    type="button"
-                    className="button__secundary"
-                    onClick={() => exportar()}
-                >
-                    Exportar dados para PDF
-                </button>
-                <button className="button__green">
-                <CSVLink data={orders}>
-                 Exportar dados para CSV
-                 </CSVLink></button>
-                </div>
 
                 <table id="table-order">
                     <thead>
