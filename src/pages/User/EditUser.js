@@ -23,7 +23,7 @@ const EditUser = (props) => {
 
     const onSubmit = (data) => {
       api.put(`/api/users/edit/${id}`, data).then(() => {
-        props.history.push("/users");
+        props.history.push("/users/list");
       }).catch(error => {
         console.log(error)
       })
