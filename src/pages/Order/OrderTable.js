@@ -5,6 +5,7 @@ import "./styles/OrderTable.css";
 import Moment from "react-moment";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import { CSVLink } from "react-csv";
 
 const OrderTable = () => {
     const [orders, setOrders] = useState([]);
@@ -71,8 +72,12 @@ const OrderTable = () => {
                     className="button__secundary"
                     onClick={() => exportar()}
                 >
-                    Exportar dados
+                    Exportar dados para PDF
                 </button>
+                <button className="button__green">
+                <CSVLink data={orders}>
+                 Exportar dados para CSV
+                 </CSVLink></button>
                 </div>
 
                 <table id="table-order">
