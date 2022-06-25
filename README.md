@@ -8,7 +8,7 @@
 
 ## About
 
-To help manage warehouse, culminate business intelligence, statistics, data warehouse to assist in decision making within the company with agricultural inputs, suppliers, work orders with registration and scheduling, machines, brands and models.
+To help manage warehouse, culminate business intelligence, statistics to assist in decision making within the company with agricultural inputs, suppliers, work orders with registration and scheduling, machines, brands and models.
 
 - Login screen
 
