@@ -16,7 +16,7 @@ To help manage warehouse, culminate business intelligence, statistics, data ware
 
 - Entities Manager
 
-- Screen responsive (Ipad and computers)
+- Screen and design responsive (Ipad, mobile and computers)
 
 - Charts
 
