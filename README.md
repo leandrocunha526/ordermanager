@@ -34,6 +34,8 @@ To help manage warehouse, culminate business intelligence, statistics to assist 
 
 - Sidebar
 
+- Addition: integration with Power BI
+
 ## Requirements
 
 - Nodejs (12.x, 14.x, 16.x and 17.x in test)
