@@ -38,6 +38,7 @@ main {
     background: #6c757d;
     border-color: #6c757d;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .button__info {
@@ -55,11 +56,9 @@ main {
     border: solid 1px;
     border-radius: 5px;
     font-weight: bold;
-    text-decoration: none;
     padding: 6px 12px;
     background: #7cf436;
     border-color: #7cf436;
-    color: #ffffff;
 }
 
 table {
@@ -98,7 +97,7 @@ input {
 
 .reports {
     padding-left: 63%;
-    position:fixed;
+    position: fixed;
     top: 2;
     right: 10px;
 }

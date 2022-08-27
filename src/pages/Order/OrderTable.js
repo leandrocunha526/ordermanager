@@ -57,17 +57,21 @@ const OrderTable = () => {
                 <div>
 
                 <div className="reports">
+                {orders.length > 0 ?
                 <button
                     type="button"
                     className="button__secundary"
                     onClick={() => exportar()}
                 > Exportar dados para PDF
                 </button>
+                 : null}
+                {orders.length ?
                 <button className="button__green">
-                <CSVLink data={orders}>
+                <CSVLink data={orders} style={{ textDecoration: 'none' }}>
                  Exportar dados para CSV
                  </CSVLink>
                 </button>
+                : null}
                 </div>
 
                 <h1>Ordem de serviço agendadas</h1>
