@@ -101,8 +101,12 @@ const OrderTable = () => {
                     </Alert>
                 ) : null}
 
-                <label>Pesquisar data de início: </label>
-                <input type="date" onChange={handleChange} />
+                {orders.length > 0 ? (
+                    <>
+                        <label>Pesquisar data de início: </label>
+                        <input type="date" onChange={handleChange} />
+                    </>
+                ) : null}
 
                 <table id="table-order">
                     <thead>
