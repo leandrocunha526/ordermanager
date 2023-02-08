@@ -91,10 +91,6 @@ input {
     border-color: #3ea175;
 }
 
-.message {
-    color: red;
-}
-
 .reports {
     padding-left: 63%;
     position: fixed;
