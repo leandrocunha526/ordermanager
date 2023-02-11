@@ -37,7 +37,7 @@ To help manage warehouse, culminate business intelligence, statistics to assist 
 
 ## Requirements
 
-- Nodejs (12.x, 14.x and 16.x)
+- Nodejs (14.x and 16.x)
 - NPM (6.x, 7.x and 8.x)
 
 ## Install dependencies
