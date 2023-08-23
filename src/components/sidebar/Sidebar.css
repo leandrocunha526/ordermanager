@@ -69,6 +69,16 @@
     position: absolute;
 }
 
+.sidebar__link.active {
+    background-color: #3ea175;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.sidebar__link.active > a {
+    color: #ffffff;
+}
+
 @media only screen and (max-width: 978px) {
     #sidebar {
         display: none;
