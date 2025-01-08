@@ -1,183 +1,242 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
-import { withRouter, Link } from "react-router-dom";
-import "./styles/OrderTable.css";
+import { Link, withRouter } from "react-router-dom";
 import Moment from "react-moment";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
-import { CSVLink } from "react-csv";
-import { Alert, AlertTitle } from "@mui/material";
+import {
+    Table,
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+    Button,
+    Alert,
+    AlertTitle,
+    Typography,
+    TextField,
+    CircularProgress,
+    TablePagination,
+} from "@mui/material";
+import {
+    Delete as DeleteIcon,
+    Edit as EditIcon,
+    Info as InfoIcon,
+} from "@mui/icons-material";
+import { Main, Container } from "./../../styles/global";
 
 const OrderTable = () => {
     const [orders, setOrders] = useState([]);
-    const [initialOrder, setInitialOrders] = useState([]);
+    const [initialOrders, setInitialOrders] = useState([]);
     const [message, setMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [searchDate, setSearchDate] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [page, setPage] = useState(0); // Página atual
+    const [rowsPerPage, setRowsPerPage] = useState(10); // Número de linhas por página
 
     useEffect(() => {
         api.get("/api/orders/list")
-            .then((res) => {
-                const orders = res.data;
-                setOrders(orders);
-                setInitialOrders(orders);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        .then((res) => {
+            const orders = res.data;
+            setOrders(orders);
+            setInitialOrders(orders);
+        })
+        .catch((error) => {
+            console.error(error);
+            setErrorMessage("Erro ao carregar ordens de serviço.");
+        })
+        .finally(() => setLoading(false));
     }, []);
 
-    const handleChange = ({ target }) => {
-        if (!target.value) {
-            setOrders(initialOrder);
+    const handleSearch = (event) => {
+        const date = event.target.value;
+        setSearchDate(date);
+
+        if (!date) {
+            setOrders(initialOrders);
             return;
         }
-        const filterOrder = orders.filter(({ startDate }) =>
-            startDate.includes(target.value)
+
+        const filteredOrders = initialOrders.filter((order) =>
+        order.startDate.startsWith(date)
         );
-        setOrders(filterOrder);
+
+        setOrders(filteredOrders);
     };
 
-    async function deleteOrder(id) {
+    const deleteOrder = async (id) => {
         try {
             await api.delete(`/api/orders/${id}`);
+            setOrders((prev) => prev.filter((order) => order.id !== id));
             setMessage("Ordem de serviço excluída com sucesso");
         } catch (err) {
             setErrorMessage(
-                "Ocorreu o seguinte problema com a exclusão da ordem de serviço " +
-                    id +
-                    ": " +
-                    err +
-                    "."
+                `Erro ao excluir ordem de serviço ${id}: ${err.message}`
             );
         }
-    }
+    };
 
-    function exportar() {
-        const doc = new jsPDF("p", "pt");
-        autoTable(doc, { html: "#table-order" });
-        doc.save("table.pdf");
-    }
+    // Controle da mudança de página
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    // Controle de mudança no número de linhas por página
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+
+    // Dados da página atual
+    const currentOrders = orders.slice(
+        page * rowsPerPage,
+        page * rowsPerPage + rowsPerPage
+    );
 
     return (
-        <main>
-            <div className="usertable__container">
-                <div>
-                    <div className="reports">
-                        {orders.length > 0 ? (
-                            <button
-                                type="button"
-                                className="button__secundary"
-                                onClick={() => exportar()}
-                            >
-                                Exportar dados para PDF
-                            </button>
-                        ) : null}
-                        {orders.length ? (
-                            <button className="button__green">
-                                <CSVLink
-                                    data={orders}
-                                    style={{ textDecoration: "none" }}
-                                >
-                                    Exportar dados para CSV
-                                </CSVLink>
-                            </button>
-                        ) : null}
-                    </div>
+        <Main>
+        <Container>
+        <Typography variant="h4" component="h1" gutterBottom>
+        Ordens de Serviço
+        </Typography>
 
-                    <h1>Ordem de serviço agendadas</h1>
-                </div>
+        {message && (
+            <Alert severity="success" sx={{ mt: 2 }}>
+            <AlertTitle>Sucesso!</AlertTitle>
+            {message}
+            </Alert>
+        )}
 
-                {message ? (
-                    <Alert severity="success">
-                        <AlertTitle>Sucesso!</AlertTitle>
-                        {message}
-                    </Alert>
-                ) : null}
+        {errorMessage && (
+            <Alert severity="error" sx={{ mt: 2 }}>
+            <AlertTitle>Erro!</AlertTitle>
+            {errorMessage}
+            </Alert>
+        )}
 
-                {errorMessage ? (
-                    <Alert severity="error">
-                        <AlertTitle>Erro!</AlertTitle>
-                        {errorMessage}
-                    </Alert>
-                ) : null}
+        {/* Campo de busca por data */}
+        <TextField
+        label="Buscar por data de início"
+        type="date"
+        value={searchDate}
+        onChange={handleSearch}
+        InputLabelProps={{ shrink: true }}
+        fullWidth
+        sx={{ mb: 2 }}
+        />
 
-                {orders.length > 0 ? (
-                    <>
-                        <label>Pesquisar data de início: </label>
-                        <input type="date" onChange={handleChange} />
-                    </>
-                ) : null}
+        {/* Indicador de carregamento */}
+        {loading ? (
+            <CircularProgress
+            sx={{ display: "block", mx: "auto", my: 3 }}
+            />
+        ) : (
+            <>
+            <Table
+            sx={{ borderCollapse: "collapse", width: "100%" }}
+            >
+            <TableHead>
+            <TableRow>
+            <TableCell style={{ fontWeight: "bold" }}>
+            ID
+            </TableCell>
+            <TableCell style={{ fontWeight: "bold" }}>
+            Descrição
+            </TableCell>
+            <TableCell style={{ fontWeight: "bold" }}>
+            Data Início
+            </TableCell>
+            <TableCell style={{ fontWeight: "bold" }}>
+            Data Final
+            </TableCell>
+            <TableCell style={{ fontWeight: "bold" }}>
+            Ações
+            </TableCell>
+            </TableRow>
+            </TableHead>
+            <TableBody>
+            {currentOrders.length > 0 ? (
+                currentOrders.map((order) => (
+                    <TableRow
+                    key={order.id}
+                    hover
+                    sx={{ backgroundColor: "#f9f9f9" }}
+                    >
+                    <TableCell>{order.id}</TableCell>
+                    <TableCell>
+                    {order.description}
+                    </TableCell>
+                    <TableCell>
+                    <Moment format="DD/MM/YYYY">
+                    {order.startDate}
+                    </Moment>
+                    </TableCell>
+                    <TableCell>
+                    <Moment format="DD/MM/YYYY">
+                    {order.endDate}
+                    </Moment>
+                    </TableCell>
+                    <TableCell>
+                    <Button
+                    variant="contained"
+                    color="warning"
+                    size="small"
+                    onClick={() =>
+                        deleteOrder(order.id)
+                    }
+                    startIcon={<DeleteIcon />}
+                    sx={{ mr: 1 }}
+                    >
+                    Deletar
+                    </Button>
+                    <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    component={Link}
+                    to={`/orders/edit/${order.id}`}
+                    startIcon={<EditIcon />}
+                    sx={{ mr: 1 }}
+                    >
+                    Editar
+                    </Button>
+                    <Button
+                    variant="contained"
+                    color="info"
+                    size="small"
+                    component={Link}
+                    to={`/orders/detail/${order.id}`}
+                    startIcon={<InfoIcon />}
+                    >
+                    Detalhes
+                    </Button>
+                    </TableCell>
+                    </TableRow>
+                ))
+            ) : (
+                <TableRow>
+                <TableCell colSpan={5} align="center">
+                Nenhuma ordem de serviço
+                encontrada.
+                </TableCell>
+                </TableRow>
+            )}
+            </TableBody>
+            </Table>
 
-                <table id="table-order">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Descrição</th>
-                            <th>Local</th>
-                            <th>Data início</th>
-                            <th>Data final</th>
-                            <th>Preço</th>
-                            <th>Máquina</th>
-                            <th>Insumo</th>
-                            <th>Funcionário</th>
-                            <th>Estado</th>
-                            <th>Deletar</th>
-                            <th>Editar</th>
-                            <th>Detalhe</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {orders.map((order) => (
-                            <tr key={order.id}>
-                                <td>{order.id}</td>
-                                <td>{order.description}</td>
-                                <td>{order.local}</td>
-                                <td>
-                                    <Moment format="DD/MM/YYYY">
-                                        {order.startDate}
-                                    </Moment>
-                                </td>
-                                <td>
-                                    <Moment format="DD/MM/YYYY">
-                                        {order.endDate}
-                                    </Moment>
-                                </td>
-                                <td>{order.price}</td>
-                                <td>{order.machines.registerCode}</td>
-                                <td>{order.agriculturalInputs.name}</td>
-                                <td>{order.employees.name}</td>
-                                <td>{order.status}</td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        className="button__warning"
-                                        onClick={() => deleteOrder(order.id)}
-                                    >
-                                        Deletar
-                                    </button>
-                                </td>
-                                <td>
-                                    <Link
-                                        to={"/orders/edit/" + order.id}
-                                        className="button__primary"
-                                    >
-                                        Editar
-                                    </Link>
-                                </td>
-                                <td>
-                                    <Link
-                                        to={"/orders/detail/" + order.id}
-                                        className="button__info"
-                                    >
-                                        Detalhe
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        </main>
+            {/* Controle de paginação */}
+            <TablePagination
+            component="div"
+            count={orders.length}
+            page={page}
+            onPageChange={handleChangePage}
+            rowsPerPage={rowsPerPage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+            labelRowsPerPage="Linhas por página:"
+            />
+            </>
+        )}
+        </Container>
+        </Main>
     );
 };
 
