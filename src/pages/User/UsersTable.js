@@ -59,7 +59,7 @@ const UsersTable = () => {
 
         setSearchQuery(query);
         setFilteredUsers(filtered);
-        setCurrentPage(1); // Resetar para a primeira página
+        setCurrentPage(1);
     };
 
     const handlePageChange = (_, value) => {
@@ -76,8 +76,6 @@ const UsersTable = () => {
             setError(`Erro ao excluir o usuário ${id}: ${err.message}`);
         }
     };
-
-    // Paginação: calcular os usuários exibidos na página atual
     const startIndex = (currentPage - 1) * usersPerPage;
     const currentUsers = filteredUsers.slice(
         startIndex,
@@ -167,8 +165,9 @@ const UsersTable = () => {
                                             </TableCell>
                                             <TableCell>
                                                 <Button
-                                                    color="error"
+                                                    color="warning"
                                                     variant="contained"
+                                                    size="small"
                                                     startIcon={<DeleteIcon />}
                                                     onClick={() =>
                                                         deleteUser(user.id)
@@ -184,6 +183,7 @@ const UsersTable = () => {
                                                     <Button
                                                         variant="contained"
                                                         startIcon={<Edit />}
+                                                        size="small"
                                                     >
                                                         Editar
                                                     </Button>
