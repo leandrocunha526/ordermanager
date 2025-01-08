@@ -15,7 +15,7 @@ import {
     CircularProgress,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Container, Main } from "./styles/UserTable";
+import { Container, Main } from "./../../styles/global";
 import { Edit } from "@mui/icons-material";
 import { Link, withRouter } from "react-router-dom";
 
@@ -120,13 +120,6 @@ const UsersTable = () => {
                             Carregando usuários...
                         </Typography>
                     </div>
-                ) : filteredUsers.length === 0 ? (
-                    <Typography
-                        variant="body1"
-                        sx={{ mt: 2, textAlign: "center" }}
-                    >
-                        Nenhum usuário encontrado.
-                    </Typography>
                 ) : (
                     <>
                         <Table
@@ -155,40 +148,60 @@ const UsersTable = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {currentUsers.map((user) => (
-                                    <TableRow
-                                        key={user.id}
-                                        hover
-                                        sx={{ backgroundColor: "#f9f9f9" }}
-                                    >
-                                        <TableCell>{user.id}</TableCell>
-                                        <TableCell>{user.firstName}</TableCell>
-                                        <TableCell>{user.lastName}</TableCell>
-                                        <TableCell>{user.username}</TableCell>
-                                        <TableCell>
-                                            <Button
-                                                color="error"
-                                                variant="contained"
-                                                startIcon={<DeleteIcon />}
-                                                onClick={() =>
-                                                    deleteUser(user.id)
-                                                }
-                                            >
-                                                Deletar
-                                            </Button>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Link to={`/user/edit/${user.id}`}>
+                                {currentUsers.length > 0 ? (
+                                    currentUsers.map((user) => (
+                                        <TableRow
+                                            key={user.id}
+                                            hover
+                                            sx={{ backgroundColor: "#f9f9f9" }}
+                                        >
+                                            <TableCell>{user.id}</TableCell>
+                                            <TableCell>
+                                                {user.firstName}
+                                            </TableCell>
+                                            <TableCell>
+                                                {user.lastName}
+                                            </TableCell>
+                                            <TableCell>
+                                                {user.username}
+                                            </TableCell>
+                                            <TableCell>
                                                 <Button
+                                                    color="error"
                                                     variant="contained"
-                                                    startIcon={<Edit />}
+                                                    startIcon={<DeleteIcon />}
+                                                    onClick={() =>
+                                                        deleteUser(user.id)
+                                                    }
                                                 >
-                                                    Editar
+                                                    Deletar
                                                 </Button>
-                                            </Link>
+                                            </TableCell>
+                                            <TableCell>
+                                                <Link
+                                                    to={`/user/edit/${user.id}`}
+                                                >
+                                                    <Button
+                                                        variant="contained"
+                                                        startIcon={<Edit />}
+                                                    >
+                                                        Editar
+                                                    </Button>
+                                                </Link>
+                                            </TableCell>
+                                        </TableRow>
+                                    ))
+                                ) : (
+                                    <TableRow>
+                                        <TableCell
+                                            colSpan={6}
+                                            align="center"
+                                            sx={{ fontStyle: "italic" }}
+                                        >
+                                            Nenhum usuário encontrado.
                                         </TableCell>
                                     </TableRow>
-                                ))}
+                                )}
                             </TableBody>
                         </Table>
 
