@@ -272,7 +272,7 @@ const OrderTable = () => {
                                     ))
                                 ) : (
                                     <TableRow>
-                                        <TableCell colSpan={5} align="center">
+                                        <TableCell colSpan={6} align="center">
                                             Nenhuma ordem de serviço encontrada.
                                         </TableCell>
                                     </TableRow>
