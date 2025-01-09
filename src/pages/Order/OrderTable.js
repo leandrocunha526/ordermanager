@@ -22,13 +22,15 @@ import {
     Info as InfoIcon,
 } from "@mui/icons-material";
 import { Main, Container } from "./../../styles/global";
+import moment from "moment";
 
 const OrderTable = () => {
     const [orders, setOrders] = useState([]);
     const [initialOrders, setInitialOrders] = useState([]);
     const [message, setMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    const [searchDate, setSearchDate] = useState("");
+    const [searchStartDate, setSearchStartDate] = useState("");
+    const [searchEndDate, setSearchEndDate] = useState("");
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -47,18 +49,20 @@ const OrderTable = () => {
             .finally(() => setLoading(false));
     }, []);
 
-    const handleSearch = (event) => {
-        const date = event.target.value;
-        setSearchDate(date);
+    const handleSearch = () => {
+        let filteredOrders = initialOrders;
 
-        if (!date) {
-            setOrders(initialOrders);
-            return;
+        if (searchStartDate) {
+            filteredOrders = filteredOrders.filter((order) =>
+                order.startDate.startsWith(searchStartDate)
+            );
         }
 
-        const filteredOrders = initialOrders.filter((order) =>
-            order.startDate.startsWith(date)
-        );
+        if (searchEndDate) {
+            filteredOrders = filteredOrders.filter((order) =>
+                order.endDate.startsWith(searchEndDate)
+            );
+        }
 
         setOrders(filteredOrders);
     };
@@ -74,17 +78,21 @@ const OrderTable = () => {
             );
         }
     };
+
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
+
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
+
     const currentOrders = orders.slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
     );
+
     const totalCost = orders.reduce(
         (sum, order) => sum + (order.price || 0),
         0
@@ -111,15 +119,56 @@ const OrderTable = () => {
                     </Alert>
                 )}
 
-                <TextField
-                    label="Buscar por data de início"
-                    type="date"
-                    value={searchDate}
-                    onChange={handleSearch}
-                    InputLabelProps={{ shrink: true }}
-                    fullWidth
-                    sx={{ mb: 2 }}
-                />
+                <Typography variant="h6" sx={{ mb: 1 }}>
+                    Filtrar ordens de serviço por uma data ou um período
+                </Typography>
+
+                <div
+                    style={{
+                        display: "flex",
+                        gap: "1rem",
+                        marginBottom: "1rem",
+                    }}
+                >
+                    <TextField
+                        label="Data de início"
+                        type="date"
+                        value={searchStartDate}
+                        onChange={(e) => setSearchStartDate(e.target.value)}
+                        InputLabelProps={{ shrink: true }}
+                        fullWidth
+                    />
+                    <TextField
+                        label="Prazo final"
+                        type="date"
+                        value={searchEndDate}
+                        onChange={(e) => setSearchEndDate(e.target.value)}
+                        InputLabelProps={{ shrink: true }}
+                        fullWidth
+                    />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleSearch}
+                    >
+                        Buscar
+                    </Button>
+                </div>
+
+                {(searchStartDate || searchEndDate) && (
+                    <Typography variant="body1" sx={{ mb: 2 }}>
+                        Filtrando por:{" "}
+                        {searchStartDate &&
+                            `Data de início: ${moment(searchStartDate).format(
+                                "DD/MM/YYYY"
+                            )}`}
+                        {searchStartDate && searchEndDate && " e "}
+                        {searchEndDate &&
+                            `Prazo final: ${moment(searchEndDate).format(
+                                "DD/MM/YYYY"
+                            )}`}
+                    </Typography>
+                )}
 
                 {loading ? (
                     <CircularProgress
@@ -152,6 +201,9 @@ const OrderTable = () => {
                                         Data Final
                                     </TableCell>
                                     <TableCell style={{ fontWeight: "bold" }}>
+                                        Estado
+                                    </TableCell>
+                                    <TableCell style={{ fontWeight: "bold" }}>
                                         Ações
                                     </TableCell>
                                 </TableRow>
@@ -177,6 +229,9 @@ const OrderTable = () => {
                                                 <Moment format="DD/MM/YYYY">
                                                     {order.endDate}
                                                 </Moment>
+                                            </TableCell>
+                                            <TableCell>
+                                                {order.status}
                                             </TableCell>
                                             <TableCell>
                                                 <Button
