@@ -4,6 +4,7 @@ import api from "../../services/api";
 import { Form, Container } from "./styles/ProviderFormStyle";
 import Title from "../../components/title";
 import { Alert, AlertTitle } from "@mui/material";
+import axios from "axios";
 
 class Provider extends Component {
     state = {
@@ -15,7 +16,7 @@ class Provider extends Component {
         city: "",
         district: "",
         state: "",
-        country: "",
+        country: "Brasil",
         zipcode: "",
         establishmentNumber: "",
         error: "",
@@ -37,6 +38,7 @@ class Provider extends Component {
             zipcode,
             establishmentNumber,
         } = this.state;
+
         if (
             !corporateName ||
             !cnpj ||
@@ -78,6 +80,41 @@ class Provider extends Component {
             }
         }
     };
+
+    handleCepChange = async (e) => {
+        let cep = e.target.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+        this.setState({ zipcode: e.target.value }); // Mostra o CEP com ou sem formatação no campo
+
+        if (cep.length === 8) {
+            try {
+                const response = await axios.get(
+                    `https://viacep.com.br/ws/${cep}/json/`
+                );
+                const { logradouro, localidade, bairro, uf } = response.data;
+
+                if (response.data.erro) {
+                    this.setState({
+                        error: "CEP não encontrado.",
+                        message: "",
+                    });
+                } else {
+                    this.setState({
+                        street: logradouro,
+                        city: localidade,
+                        district: bairro,
+                        state: uf,
+                        error: "",
+                    });
+                }
+            } catch (err) {
+                this.setState({
+                    error: "Erro ao buscar endereço. Tente novamente.",
+                    message: "",
+                });
+            }
+        }
+    };
+
     render() {
         return (
             <main>
@@ -136,6 +173,14 @@ class Provider extends Component {
                             }
                         />
 
+                        <label>CEP</label>
+                        <input
+                            type="text"
+                            placeholder="CEP"
+                            value={this.state.zipcode}
+                            onChange={this.handleCepChange}
+                        />
+
                         <label>Rua</label>
                         <input
                             type="text"
@@ -183,16 +228,6 @@ class Provider extends Component {
                             value={this.state.country}
                             onChange={(e) =>
                                 this.setState({ country: e.target.value })
-                            }
-                        />
-
-                        <label>CEP</label>
-                        <input
-                            type="number"
-                            placeholder="CEP"
-                            value={this.state.zipcode}
-                            onChange={(e) =>
-                                this.setState({ zipcode: e.target.value })
                             }
                         />
 
