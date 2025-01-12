@@ -87,7 +87,7 @@ const OrderEdit = (props) => {
                         <option value="0">Selecione o estado</option>
                         <option value="Pendente">Pendente</option>
                         <option value="Em andamento">Em andamento</option>
-                        <option value="Resolvido">Resolvido</option>
+                        <option value="Concluído">Concluído</option>
                     </select>
                     {errors.status && errors.status.type === "required" && (
                         <span>Estado é um campo obrigatório</span>

@@ -147,7 +147,7 @@ class Order extends Component {
                             <option>Selecione o estado</option>
                             <option value="Pendente">Pendente</option>
                             <option value="Em andamento">Em andamento</option>
-                            <option value="Resolvido">Resolvido</option>
+                            <option value="Concluído">Concluído</option>
                         </select>
 
                         <label>Local</label>
