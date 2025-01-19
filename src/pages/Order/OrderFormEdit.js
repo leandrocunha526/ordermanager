@@ -84,7 +84,7 @@ const OrderEdit = (props) => {
                         id="status"
                         {...register("status", { required: true })}
                     >
-                        <option value="0">Selecione o estado</option>
+                        <option value="" disabled>Selecione o estado</option>
                         <option value="Pendente">Pendente</option>
                         <option value="Em andamento">Em andamento</option>
                         <option value="Concluído">Concluído</option>
