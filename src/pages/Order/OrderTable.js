@@ -15,6 +15,8 @@ import {
     TextField,
     CircularProgress,
     TablePagination,
+    Select,
+    MenuItem,
 } from "@mui/material";
 import {
     Delete as DeleteIcon,
@@ -34,19 +36,23 @@ const OrderTable = () => {
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [statusOrder, setStatusOrder] = useState("default");
 
     useEffect(() => {
-        api.get("/api/orders/list")
-            .then((res) => {
-                const orders = res.data;
-                setOrders(orders);
-                setInitialOrders(orders);
-            })
-            .catch((error) => {
+        const fetchOrders = async () => {
+            try {
+                const response = await api.get("/api/orders/list");
+                setOrders(response.data);
+                setInitialOrders(response.data);
+            } catch (error) {
                 console.error(error);
                 setErrorMessage("Erro ao carregar ordens de serviço.");
-            })
-            .finally(() => setLoading(false));
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchOrders();
     }, []);
 
     const handleSearch = () => {
@@ -54,15 +60,26 @@ const OrderTable = () => {
 
         if (searchStartDate) {
             filteredOrders = filteredOrders.filter((order) =>
-                order.startDate.startsWith(searchStartDate)
+                moment(order.startDate).isSameOrAfter(searchStartDate, "day")
             );
         }
 
         if (searchEndDate) {
             filteredOrders = filteredOrders.filter((order) =>
-                order.endDate.startsWith(searchEndDate)
+                moment(order.endDate).isSameOrBefore(searchEndDate, "day")
             );
         }
+
+        setOrders(filteredOrders);
+    };
+
+    const handleStatus = (event) => {
+        const selectedStatus = event.target.value;
+        setStatusOrder(selectedStatus);
+
+        const filteredOrders = selectedStatus
+            ? initialOrders.filter((order) => order.status === selectedStatus)
+            : initialOrders;
 
         setOrders(filteredOrders);
     };
@@ -157,7 +174,7 @@ const OrderTable = () => {
 
                 {(searchStartDate || searchEndDate) && (
                     <Typography variant="body1" sx={{ mb: 2 }}>
-                        Filtrando por:{" "}
+                        Filtrando por: {" "}
                         {searchStartDate &&
                             `Data de início: ${moment(searchStartDate).format(
                                 "DD/MM/YYYY"
@@ -170,14 +187,30 @@ const OrderTable = () => {
                     </Typography>
                 )}
 
+                <Typography variant="h6" sx={{ mb: 1 }}>Status da ordem de serviço</Typography>
+                <Select
+                    labelId="statusOrder-label"
+                    id="statusOrder"
+                    value={statusOrder}
+                    onChange={handleStatus}
+                    fullWidth
+                >
+					<MenuItem value="default" disabled>
+						Selecione uma opção
+					</MenuItem>
+                    <MenuItem value="Pendente">Pendente</MenuItem>
+                    <MenuItem value="Em Andamento">Em Andamento</MenuItem>
+                    <MenuItem value="Concluído">Concluído</MenuItem>
+                </Select>
+
                 {loading ? (
                     <CircularProgress
                         sx={{ display: "block", mx: "auto", my: 3 }}
                     />
                 ) : (
                     <>
-                        <Typography variant="p" sx={{ mt: 4 }}>
-                            Custo Total:{" "}
+                        <Typography variant="body1" sx={{ mt: 4 }}>
+                            Custo Total: {" "}
                             {totalCost.toLocaleString("pt-BR", {
                                 style: "currency",
                                 currency: "BRL",
