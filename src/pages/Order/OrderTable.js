@@ -174,7 +174,7 @@ const OrderTable = () => {
 
                 {(searchStartDate || searchEndDate) && (
                     <Typography variant="body1" sx={{ mb: 2 }}>
-                        Filtrando por: {" "}
+                        Filtrando por:{" "}
                         {searchStartDate &&
                             `Data de início: ${moment(searchStartDate).format(
                                 "DD/MM/YYYY"
@@ -187,7 +187,9 @@ const OrderTable = () => {
                     </Typography>
                 )}
 
-                <Typography variant="h6" sx={{ mb: 1 }}>Status da ordem de serviço</Typography>
+                <Typography variant="h6" sx={{ mb: 1 }}>
+                    Status da ordem de serviço
+                </Typography>
                 <Select
                     labelId="statusOrder-label"
                     id="statusOrder"
@@ -195,9 +197,9 @@ const OrderTable = () => {
                     onChange={handleStatus}
                     fullWidth
                 >
-					<MenuItem value="default" disabled>
-						Selecione uma opção
-					</MenuItem>
+                    <MenuItem value="default" disabled>
+                        Selecione uma opção
+                    </MenuItem>
                     <MenuItem value="Pendente">Pendente</MenuItem>
                     <MenuItem value="Em Andamento">Em Andamento</MenuItem>
                     <MenuItem value="Concluído">Concluído</MenuItem>
@@ -210,7 +212,7 @@ const OrderTable = () => {
                 ) : (
                     <>
                         <Typography variant="body1" sx={{ mt: 4 }}>
-                            Custo Total: {" "}
+                            Custo Total:{" "}
                             {totalCost.toLocaleString("pt-BR", {
                                 style: "currency",
                                 currency: "BRL",
@@ -320,6 +322,11 @@ const OrderTable = () => {
                             rowsPerPage={rowsPerPage}
                             onRowsPerPageChange={handleChangeRowsPerPage}
                             labelRowsPerPage="Linhas por página:"
+                            labelDisplayedRows={({ from, to, count }) =>
+                                `${from}-${to} de ${
+                                    count !== -1 ? count : `mais de ${to}`
+                                }`
+                            }
                         />
                     </>
                 )}
