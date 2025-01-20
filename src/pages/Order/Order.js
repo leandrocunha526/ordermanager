@@ -144,9 +144,11 @@ class Order extends Component {
                                 this.setState({ status: e.target.value })
                             }
                         >
-                            <option value="" disabled>Selecione o estado</option>
+                            <option value="" disabled>
+                                Selecione o estado
+                            </option>
                             <option value="Pendente">Pendente</option>
-                            <option value="Em andamento">Em andamento</option>
+                            <option value="Em Andamento">Em Andamento</option>
                             <option value="Concluído">Concluído</option>
                         </select>
 
