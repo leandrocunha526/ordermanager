@@ -82,8 +82,8 @@ class Provider extends Component {
     };
 
     handleCepChange = async (e) => {
-        let cep = e.target.value.replace(/\D/g, ""); // Remove caracteres não numéricos
-        this.setState({ zipcode: e.target.value }); // Mostra o CEP com ou sem formatação no campo
+        let cep = e.target.value.replace(/\D/g, "");
+        this.setState({ zipcode: e.target.value });
 
         if (cep.length === 8) {
             try {
@@ -95,7 +95,6 @@ class Provider extends Component {
                 if (response.data.erro) {
                     this.setState({
                         error: "CEP não encontrado.",
-                        message: "",
                     });
                 } else {
                     this.setState({
@@ -109,7 +108,6 @@ class Provider extends Component {
             } catch (err) {
                 this.setState({
                     error: "Erro ao buscar endereço. Tente novamente.",
-                    message: "",
                 });
             }
         }
@@ -179,6 +177,7 @@ class Provider extends Component {
                             placeholder="CEP"
                             value={this.state.zipcode}
                             onChange={this.handleCepChange}
+                            maxLength="8"
                         />
 
                         <label>Rua</label>
